@@ -1,3 +1,27 @@
 #wpbody {
 	border: 2px solid red;
 }
+
+.sidebar-preview, .sidebar-admin_form {
+	display: inline-block;
+	float: left;
+	margin: 20px;
+} 
+
+.sidebar-preview {
+	background-color: #000;
+	width: 30%;
+	text-align: center;
+}
+
+.sidebar-preview h1, .sidebar-preview h2{
+	color: #fff;
+}
+
+.sidebar-admin_form {
+	width: 60%;
+}
+.box-container {
+	padding: 20px;
+
+}
