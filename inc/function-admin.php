@@ -27,7 +27,7 @@ function sunsetWp_add_admin_page() {
 
 add_action('admin_menu', 'sunsetWp_add_admin_page');
 
-	//Generate Custom sunsetWp-theme admin General Info page 
+	//Generate Custom sunsetWp-theme admin General Info page template
 function sunsetWp_theme_create_page() {
 	require_once(get_template_directory().'/inc/admin-templates/sunsetWp-admin.php');
 }
@@ -41,6 +41,7 @@ function sunsetWp_custom_settings() {
 	//Register Settings fields
 	register_setting('sunsetWp-settings-group', 'first_name');
 	register_setting('sunsetWp-settings-group', 'last_name');
+	register_setting('sunsetWp-settings-group', 'description');
 	register_setting('sunsetWp-settings-group', 'twitter_handler', 'sunsetWp_sanitize_twitter_input');
 	register_setting('sunsetWp-settings-group', 'facebook_handler');
 	register_setting('sunsetWp-settings-group', 'gplus_handler');
@@ -51,6 +52,8 @@ function sunsetWp_custom_settings() {
 	//Add Settings fields
 	add_settings_field('sidebar_name', 'Full Name', 'sunsetWp_sidebar_name', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);
 	//Add Settings fields
+	add_settings_field('sidebar_description', 'Description', 'sunsetWp_sidebar_description', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);
+	//Add Settings fields
 	add_settings_field('sidebar_twitter', 'Twitter Handler', 'sunsetWp_sidebar_twitter', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);
 	//Add Settings fields
 	add_settings_field('sidebar_facebook', 'Facebook Handler', 'sunsetWp_sidebar_facebook', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);
@@ -59,7 +62,7 @@ function sunsetWp_custom_settings() {
 }
 
 function sunsetWp_sidebar_options(){
-	echo "customize your theme Sidebar information";
+	echo "<p>Customize your theme Sidebar Information</p>";
 }
 
 function sunsetWp_sidebar_name(){
@@ -67,6 +70,11 @@ function sunsetWp_sidebar_name(){
 	$lastname = esc_attr(get_option('last_name'));
 	echo '<input type="text" name="first_name" value="'.$firstname.'" placeholder="First Name"></input>
 		<input type="text" name="last_name" value="'.$lastname.'" placeholder="Last Name"></input>';
+}
+
+function sunsetWp_sidebar_description(){
+	$description = esc_attr(get_option('description'));
+	echo '<input type="text" name="description" value="'.$description.'" placeholder="Description"></input><p class="description">A little about you</p>';
 }
 
 function sunsetWp_sidebar_twitter(){
