@@ -1,7 +1,4 @@
-#wpbody {
-	border: 2px solid red;
-}
-
+ 
 .sidebar-preview, .sidebar-admin_form {
 	display: inline-block;
 	float: left;
@@ -24,4 +21,14 @@
 .box-container {
 	padding: 20px;
 
+}
+
+#profile-image-preview {
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-size: 100%;
+    margin: 18px auto;
+    background-position: top center;
 }
