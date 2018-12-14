@@ -39,6 +39,7 @@ function sunsetWp_theme_settings_page() {
 
 function sunsetWp_custom_settings() {
 	//Register Settings fields
+	register_setting('sunsetWp-settings-group', 'profile_picture');	
 	register_setting('sunsetWp-settings-group', 'first_name');
 	register_setting('sunsetWp-settings-group', 'last_name');
 	register_setting('sunsetWp-settings-group', 'description');
@@ -48,7 +49,8 @@ function sunsetWp_custom_settings() {
 
 	//Add Settings Section
 	add_settings_section('sunsetWp-sidebar-options', 'Sidebar Options', 'sunsetWp_sidebar_options', 'premium_sunsetWp'); //(section-id, title, fieldname, callback, page-id)
-	
+
+	add_settings_field('profile_picture', 'Profile Picture', 'sunsetWp_sidebar_picture', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);		
 	//Add Settings fields
 	add_settings_field('sidebar_name', 'Full Name', 'sunsetWp_sidebar_name', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);
 	//Add Settings fields
@@ -63,6 +65,13 @@ function sunsetWp_custom_settings() {
 
 function sunsetWp_sidebar_options(){
 	echo "<p>Customize your theme Sidebar Information</p>";
+}
+
+
+function sunsetWp_sidebar_picture(){
+	$picture = esc_attr(get_option('profile_picture'));
+	echo '<input type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button">
+		 <input type="hidden" name="profile_picture" value="'.$picture.'" id="profile-picture">';
 }
 
 function sunsetWp_sidebar_name(){
