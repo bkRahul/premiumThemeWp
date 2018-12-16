@@ -16,9 +16,11 @@ function sunsetWp_add_admin_page() {
 
 
 //Generate sunset-theme admin sub-pages 
-	add_submenu_page('premium_sunsetWp', 'Sunset Theme Options', 'General Info', 'manage_options', 'premium_sunsetWp', 'sunsetWp_theme_create_page');//(id, title, fieldname, admin privileges, page-url, callback)
+	add_submenu_page('premium_sunsetWp', 'SunsetWp Theme Options', 'Sidebar Info', 'manage_options', 'premium_sunsetWp', 'sunsetWp_theme_create_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
 
-	add_submenu_page('premium_sunsetWp', 'Sunset CSS Options', 'Custom CSS', 'manage_options', 'premium_sunsetWp_css', 'sunsetWp_theme_settings_page');//(id, title, fieldname, admin privileges, page-url, callback)
+	add_submenu_page('premium_sunsetWp', 'SunsetWp CSS Options', 'Custom CSS', 'manage_options', 'premium_sunsetWp_css', 'sunsetWp_theme_css_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
+
+	add_submenu_page('premium_sunsetWp', 'SunsetWp Settings Options', 'Settings Options', 'manage_options', 'premium_sunsetWp_settings', 'sunsetWp_theme_settings_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
 
 //Activate Custom Settings fields
 	add_action('admin_init', 'sunsetWp_custom_settings') ;	
@@ -27,15 +29,21 @@ function sunsetWp_add_admin_page() {
 
 add_action('admin_menu', 'sunsetWp_add_admin_page');
 
-	//Generate Custom sunsetWp-theme admin General Info page template
+	//Generate Custom sunsetWp-theme admin Sidebar Info page template
 function sunsetWp_theme_create_page() {
-	require_once(get_template_directory().'/inc/admin-templates/sunsetWp-admin.php');
+	require_once(get_template_directory().'/inc/admin-templates/sunsetWp-sidebar.php');
 }
 
 	//Generate sunsetWp-theme css page
-function sunsetWp_theme_settings_page() {
+function sunsetWp_theme_css_page() {
 	echo "<h1>Sunset Custom CSS</h1>"; 
 }
+
+	//Generate Custom sunsetWp-theme admin General Info page template
+function sunsetWp_theme_settings_page() {
+	require_once(get_template_directory().'/inc/admin-templates/sunsetWp-settings.php');
+}
+
 
 function sunsetWp_custom_settings() {
 	//Register Settings fields

@@ -11,17 +11,14 @@
 	text-align: center;
 }
 
-.sidebar-preview h1, .sidebar-preview h2{
+.sidebar-preview h1, .sidebar-preview h3{
 	color: #fff;
 }
 
 .sidebar-admin_form {
 	width: 60%;
 }
-.box-container {
-	padding: 20px;
-
-}
+ 
 
 #profile-image-preview {
     width: 200px;
