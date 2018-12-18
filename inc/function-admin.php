@@ -2,9 +2,9 @@
 	
 	/*
 
-	============================
-			ADMIN PAGE
-	============================
+	=======================================
+			Theme ADMIN Section
+	=======================================
 
 	*/
 
@@ -18,9 +18,10 @@ function sunsetWp_add_admin_page() {
 //Generate sunset-theme admin sub-pages 
 	add_submenu_page('premium_sunsetWp', 'SunsetWp Theme Options', 'Sidebar Info', 'manage_options', 'premium_sunsetWp', 'sunsetWp_theme_create_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
 
-	add_submenu_page('premium_sunsetWp', 'SunsetWp CSS Options', 'Custom CSS', 'manage_options', 'premium_sunsetWp_css', 'sunsetWp_theme_css_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
+	add_submenu_page('premium_sunsetWp', 'SunsetWp Theme Options', 'Theme Options', 'manage_options', 'sunsetWp_options', 'sunsetWp_theme_support_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
 
-	add_submenu_page('premium_sunsetWp', 'SunsetWp Settings Options', 'Settings Options', 'manage_options', 'premium_sunsetWp_settings', 'sunsetWp_theme_settings_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
+	add_submenu_page('premium_sunsetWp', 'SunsetWp CSS Options', 'Custom CSS', 'manage_options', 'sunsetWp_css', 'sunsetWp_theme_css_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
+
 
 //Activate Custom Settings fields
 	add_action('admin_init', 'sunsetWp_custom_settings') ;	
@@ -29,23 +30,31 @@ function sunsetWp_add_admin_page() {
 
 add_action('admin_menu', 'sunsetWp_add_admin_page');
 
-	//Generate Custom sunsetWp-theme admin Sidebar Info page template
+
+
+//*SunsetWp-theme submenu callbacks
+
+	//Generate sunsetWp-theme admin Sidebar Info page template
 function sunsetWp_theme_create_page() {
 	require_once(get_template_directory().'/inc/admin-templates/sunsetWp-sidebar.php');
 }
 
-	//Generate sunsetWp-theme css page
+
+	//Generate sunsetWp-theme admin General Info page template
+function sunsetWp_theme_support_page() {
+	require_once(get_template_directory().'/inc/admin-templates/sunsetWp-options.php');
+}
+
+	//Generate sunsetWp-theme css content
 function sunsetWp_theme_css_page() {
 	echo "<h1>Sunset Custom CSS</h1>"; 
 }
 
-	//Generate Custom sunsetWp-theme admin General Info page template
-function sunsetWp_theme_settings_page() {
-	require_once(get_template_directory().'/inc/admin-templates/sunsetWp-settings.php');
-}
-
 
 function sunsetWp_custom_settings() {
+
+//*Theme Sidebar Options*
+
 	//Register Settings fields
 	register_setting('sunsetWp-settings-group', 'profile_picture');	
 	register_setting('sunsetWp-settings-group', 'first_name');
@@ -55,25 +64,57 @@ function sunsetWp_custom_settings() {
 	register_setting('sunsetWp-settings-group', 'facebook_handler');
 	register_setting('sunsetWp-settings-group', 'gplus_handler');
 
-	//Add Settings Section
-	add_settings_section('sunsetWp-sidebar-options', 'Sidebar Options', 'sunsetWp_sidebar_options', 'premium_sunsetWp'); //(section-id, title, fieldname, callback, page-id)
 
-	add_settings_field('profile_picture', 'Profile Picture', 'sunsetWp_sidebar_picture', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);		
+	//Add Settings Section
+	add_settings_section('sunsetWp-sidebar-options', 'Sidebar Options', 'sunsetWp_sidebar_options', 'premium_sunsetWp'); //(section-id, title, fieldname, callback, page-url)
+
 	//Add Settings fields
-	add_settings_field('sidebar_name', 'Full Name', 'sunsetWp_sidebar_name', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);
-	//Add Settings fields
-	add_settings_field('sidebar_description', 'Description', 'sunsetWp_sidebar_description', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);
-	//Add Settings fields
-	add_settings_field('sidebar_twitter', 'Twitter Handler', 'sunsetWp_sidebar_twitter', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);
-	//Add Settings fields
-	add_settings_field('sidebar_facebook', 'Facebook Handler', 'sunsetWp_sidebar_facebook', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);
-	//Add Settings fields
-	add_settings_field('sidebar_gplus', 'Google+ Handler', 'sunsetWp_sidebar_gplus', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-id, section-id);	
+	add_settings_field('profile-picture', 'Profile Picture', 'sunsetWp_sidebar_picture', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-url, section-id);		
+	add_settings_field('sidebar-name', 'Full Name', 'sunsetWp_sidebar_name', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-url, section-id);
+	add_settings_field('sidebar-description', 'Description', 'sunsetWp_sidebar_description', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-url, section-id);
+	add_settings_field('sidebar-twitter', 'Twitter Handler', 'sunsetWp_sidebar_twitter', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-url, section-id);
+	add_settings_field('sidebar-facebook', 'Facebook Handler', 'sunsetWp_sidebar_facebook', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-url, section-id);
+	add_settings_field('sidebar-gplus', 'Google+ Handler', 'sunsetWp_sidebar_gplus', 'premium_sunsetWp', 'sunsetWp-sidebar-options');//(id, title, callback, page-url, section-id);	
+
+
+//*Theme Suppport Options*
+
+	register_setting('sunsetWp-theme-support', 'post-formats', 'sunsetWp_post_formats_callback');//(option-group, option-name, option-callback)	
+
+	add_settings_section('sunsetWp-theme-options', 'Theme Options', 'sunsetWp_theme_options', 'sunsetWp_options'); //(section-id, title, fieldname, callback, page-url)
+
+	add_settings_field('post-formats', 'Post Formats', 'sunsetWp_post_formats', 'sunsetWp_options', 'sunsetWp-theme-options');//(id, title, callback, page-url, section-id);	
+
 }
+
+	//Post formats callback
+function sunsetWp_post_formats_callback($input) {
+	return $input ;
+}
+
+function sunsetWp_post_formats(){
+	$options = get_option('post-formats');
+	$formats = array('aside','image', 'video', 'gallery', 'link', 'quote', 'status', 'audio', 'chat');
+	$output = '';
+	foreach ($formats as $format) {
+		$checked = (@$options[$format] == 1 ? 'checked' : '');
+		$output .= '<label><input type="checkbox" id="'.$format.'" name="post-formats['.$format.']" value="1" '.$checked.'/> '.$format.'</label><br>';
+	}
+
+	echo $output;
+ 
+}
+
+
+function sunsetWp_theme_options(){
+	echo "<p>Customize your theme Settings Options</p>";
+}
+
 
 function sunsetWp_sidebar_options(){
 	echo "<p>Customize your theme Sidebar Information</p>";
 }
+
 
 
 function sunsetWp_sidebar_picture(){
@@ -111,7 +152,7 @@ function sunsetWp_sidebar_gplus(){
 
 
 
-//Sanitization Settings
+//*Sanitization Settings*
 
 function sunsetWp_sanitize_twitter_input($input) {
 	$output = sanitize_text_field($input);
