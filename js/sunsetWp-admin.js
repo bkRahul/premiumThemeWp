@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 	var mediaUploader;
 
-	$('#upload-button').on('click', function(e) {
+	$('#upload-picture').on('click', function(e) {
 		e.preventDefault();
 		if(mediaUploader) {
 			mediaUploader.open();
@@ -23,4 +23,16 @@ jQuery(document).ready(function($) {
 		});
 		mediaUploader.open();
 	});
-})
+
+	$('#remove-picture').on('click', function(e) {
+		e.preventDefault();	
+
+		var answer = confirm("Do you want to remove profile picture");
+		if (answer == true) {
+			$('#profile-picture').val('');
+			$('.sidebar-admin-form').submit();
+
+		}
+		return;
+	});
+});

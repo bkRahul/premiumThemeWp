@@ -3,7 +3,7 @@
 
 <div class="container box-container">
 
-<form method="POST" action="options.php" class="sidebar-admin_form">
+<form method="POST" action="options.php" class="sidebar_admin_form">
 	
 <?php settings_fields('sunsetWp-theme-support'); 	//Call the settings field on the page 	?>
 
