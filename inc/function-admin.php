@@ -1,4 +1,4 @@
-<?php
+ <?php
 	
 	/*
 
@@ -16,7 +16,7 @@ function sunsetWp_add_admin_page() {
 
 
 //Generate sunset-theme admin sub-pages 
-	add_submenu_page('premium_sunsetWp', 'SunsetWp Theme Options', 'Sidebar Info', 'manage_options', 'premium_sunsetWp', 'sunsetWp_theme_create_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
+	add_submenu_page('premium_sunsetWp', 'SunsetWp Sidebar Options', 'Sidebar Info', 'manage_options', 'premium_sunsetWp', 'sunsetWp_theme_create_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
 
 	add_submenu_page('premium_sunsetWp', 'SunsetWp Theme Options', 'Theme Options', 'manage_options', 'sunsetWp_options', 'sunsetWp_theme_support_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
 
@@ -79,11 +79,22 @@ function sunsetWp_custom_settings() {
 
 //*Theme Suppport Options*
 
-	register_setting('sunsetWp-theme-support', 'post-formats', 'sunsetWp_post_formats_callback');//(option-group, option-name, option-callback)	
+	//Register post-format Section
+	register_setting('sunsetWp-theme-support', 'post_formats', 'sunsetWp_post_formats_callback');//(option-group, option-name, option-callback)	
+	
+	//Register header Section
+	register_setting('sunsetWp-theme-support', 'custom_header');	
+	
+	//Register background Section
+	register_setting('sunsetWp-theme-support', 'custom_background');	
 
 	add_settings_section('sunsetWp-theme-options', 'Theme Options', 'sunsetWp_theme_options', 'sunsetWp_options'); //(section-id, title, fieldname, callback, page-url)
 
 	add_settings_field('post-formats', 'Post Formats', 'sunsetWp_post_formats', 'sunsetWp_options', 'sunsetWp-theme-options');//(id, title, callback, page-url, section-id);	
+
+	add_settings_field('custom-header', 'Custom Header', 'sunsetWp_custom_header', 'sunsetWp_options', 'sunsetWp-theme-options');//(id, title, callback, page-url, section-id);	
+
+	add_settings_field('custom-background', 'Custom Background', 'sunsetWp_custom_background', 'sunsetWp_options', 'sunsetWp-theme-options');//(id, title, callback, page-url, section-id);	
 
 }
 
@@ -93,12 +104,12 @@ function sunsetWp_post_formats_callback($input) {
 }
 
 function sunsetWp_post_formats(){
-	$options = get_option('post-formats');
+	$options = get_option('post_formats');
 	$formats = array('aside','image', 'video', 'gallery', 'link', 'quote', 'status', 'audio', 'chat');
 	$output = '';
 	foreach ($formats as $format) {
 		$checked = (@$options[$format] == 1 ? 'checked' : '');
-		$output .= '<label><input type="checkbox" id="'.$format.'" name="post-formats['.$format.']" value="1" '.$checked.'/> '.$format.'</label><br>';
+		$output .= '<label><input type="checkbox" id="'.$format.'" name="post_formats['.$format.']" value="1" '.$checked.'/> '.$format.'</label><br>';
 	}
 
 	echo $output;
@@ -119,8 +130,9 @@ function sunsetWp_sidebar_options(){
 
 function sunsetWp_sidebar_picture(){
 	$picture = esc_attr(get_option('profile_picture'));
-	echo '<input type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button">
-		 <input type="hidden" name="profile_picture" value="'.$picture.'" id="profile-picture">';
+	echo '<input type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-picture">
+		 <input type="hidden" name="profile_picture" value="'.$picture.'" id="profile-picture">
+		 <input type="button" class="button button-secondary" value="Remove Picture" id="remove-picture">';
 }
 
 function sunsetWp_sidebar_name(){
@@ -150,7 +162,25 @@ function sunsetWp_sidebar_gplus(){
 	echo '<input type="text" name="gplus_handler" value="'.$gplushandler.'" placeholder="Google+ Handler"></input>';
 }
 
+function sunsetWp_custom_header(){
+	$header = get_option('custom_header');
+  	
+  	$output = '';
+	
+		$checked = (@$header == 1 ? 'checked' : '');
+		$output .= '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.$checked.'/>Activate Custom Header</label><br>';
+ 		echo $output;
+}
 
+function sunsetWp_custom_background(){
+	$background = get_option('custom_background');
+  	
+  	$output = '';
+	
+		$checked = (@$background == 1 ? 'checked' : '');
+		$output .= '<label><input type="checkbox" id="custom_background" name="custom_background" value="1" '.$checked.'/>Activate Custom Background</label><br>';
+ 		echo $output;
+}
 
 //*Sanitization Settings*
 
