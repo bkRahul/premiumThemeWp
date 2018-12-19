@@ -28,13 +28,13 @@
 </div>
 
 
-<form method="POST" action="options.php" class="sidebar-admin_form">
+<form method="POST" action="options.php" class="sidebar-admin-form">
 	
 <?php settings_fields('sunsetWp-settings-group'); 	//Call the settings field on the page 	?>
 
 <?php do_settings_sections('premium_sunsetWp');//(page-url to be called on) 	//Call the settings section on the page 	?>
 
-<?php submit_button(); ?>
+<?php submit_button('Save Changes', 'primary', 'btnsubmit'); ?>
 
 </form>
 
