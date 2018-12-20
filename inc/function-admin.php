@@ -20,6 +20,8 @@ function sunsetWp_add_admin_page() {
 
 	add_submenu_page('premium_sunsetWp', 'SunsetWp Theme Options', 'Theme Options', 'manage_options', 'sunsetWp_options', 'sunsetWp_theme_support_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
 
+	add_submenu_page('premium_sunsetWp', 'SunsetWp Contact Form', 'Contact Form', 'manage_options', 'sunsetWp_contact', 'sunsetWp_theme_contact');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
+
 	add_submenu_page('premium_sunsetWp', 'SunsetWp CSS Options', 'Custom CSS', 'manage_options', 'sunsetWp_css', 'sunsetWp_theme_css_page');//(parent-slug, page-title, menu-title, admin privileges, page-url, callback)
 
 
@@ -29,6 +31,9 @@ function sunsetWp_add_admin_page() {
 }
 
 add_action('admin_menu', 'sunsetWp_add_admin_page');
+
+
+
 
 
 
@@ -43,6 +48,11 @@ function sunsetWp_theme_create_page() {
 	//Generate sunsetWp-theme admin General Info page template
 function sunsetWp_theme_support_page() {
 	require_once(get_template_directory().'/inc/admin-templates/sunsetWp-options.php');
+}
+
+	//Generate sunsetWp-theme admin Contact page template
+function sunsetWp_theme_contact(){
+	require_once(get_template_directory().'/inc/admin-templates/sunsetWp-contact.php');
 }
 
 	//Generate sunsetWp-theme css content
@@ -96,6 +106,17 @@ function sunsetWp_custom_settings() {
 
 	add_settings_field('custom-background', 'Custom Background', 'sunsetWp_custom_background', 'sunsetWp_options', 'sunsetWp-theme-options');//(id, title, callback, page-url, section-id);	
 
+
+//*Theme Contact Form Options*
+
+	//Register contact form Section
+	register_setting('sunsetWp-contact-options', 'activate_contact');	
+
+	add_settings_section('sunsetWp-contact-options', 'Contact Form Options', 'sunsetWp_contact_section', 'sunsetWp_contact'); //(section-id, title, fieldname, callback, page-url)
+
+	add_settings_field('contact-options', 'Contact Options', 'sunsetWp_activate_contact', 'sunsetWp_contact', 'sunsetWp-contact-options');//(id, title, callback, page-url, section-id);	
+
+
 }
 
 	//Post formats callback
@@ -103,31 +124,24 @@ function sunsetWp_post_formats_callback($input) {
 	return $input ;
 }
 
-function sunsetWp_post_formats(){
-	$options = get_option('post_formats');
-	$formats = array('aside','image', 'video', 'gallery', 'link', 'quote', 'status', 'audio', 'chat');
-	$output = '';
-	foreach ($formats as $format) {
-		$checked = (@$options[$format] == 1 ? 'checked' : '');
-		$output .= '<label><input type="checkbox" id="'.$format.'" name="post_formats['.$format.']" value="1" '.$checked.'/> '.$format.'</label><br>';
+//*Section Settings Callbacks*
+
+	function sunsetWp_theme_options(){
+		echo "<p>Customize your theme Settings Options</p>";
 	}
 
-	echo $output;
- 
-}
 
+	function sunsetWp_sidebar_options(){
+		echo "<p>Customize your theme Sidebar Information</p>";
+	}
 
-function sunsetWp_theme_options(){
-	echo "<p>Customize your theme Settings Options</p>";
-}
+	function sunsetWp_contact_section(){
+		echo "<p>Customize your theme Contact Options</p>";
+	}
 
+//*Field Settings Callbacks*
 
-function sunsetWp_sidebar_options(){
-	echo "<p>Customize your theme Sidebar Information</p>";
-}
-
-
-
+//sidebar options settings field callbacks
 function sunsetWp_sidebar_picture(){
 	$picture = esc_attr(get_option('profile_picture'));
 	echo '<input type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-picture">
@@ -162,14 +176,28 @@ function sunsetWp_sidebar_gplus(){
 	echo '<input type="text" name="gplus_handler" value="'.$gplushandler.'" placeholder="Google+ Handler"></input>';
 }
 
+//theme support options settings field callbacks
+function sunsetWp_post_formats(){
+	$options = get_option('post_formats');
+	$formats = array('aside','image', 'video', 'gallery', 'link', 'quote', 'status', 'audio', 'chat');
+	$output = '';
+	foreach ($formats as $format) {
+		$checked = (@$options[$format] == 1 ? 'checked' : '');
+		$output .= '<label><input type="checkbox" id="'.$format.'" name="post_formats['.$format.']" value="1" '.$checked.'/> '.$format.'</label><br>';
+	}
+
+	echo $output;
+ 
+}
+
 function sunsetWp_custom_header(){
 	$header = get_option('custom_header');
   	
   	$output = '';
 	
-		$checked = (@$header == 1 ? 'checked' : '');
-		$output .= '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.$checked.'/>Activate Custom Header</label><br>';
- 		echo $output;
+	$checked = (@$header == 1 ? 'checked' : '');
+	$output .= '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.$checked.'/>Activate Custom Header</label><br>';
+	echo $output;
 }
 
 function sunsetWp_custom_background(){
@@ -177,9 +205,20 @@ function sunsetWp_custom_background(){
   	
   	$output = '';
 	
-		$checked = (@$background == 1 ? 'checked' : '');
-		$output .= '<label><input type="checkbox" id="custom_background" name="custom_background" value="1" '.$checked.'/>Activate Custom Background</label><br>';
- 		echo $output;
+	$checked = (@$background == 1 ? 'checked' : '');
+	$output .= '<label><input type="checkbox" id="custom_background" name="custom_background" value="1" '.$checked.'/>Activate Custom Background</label><br>';
+	echo $output;
+}
+
+//theme contact form settings field callback
+function sunsetWp_activate_contact(){
+	$activate = get_option('activate_contact');
+  	
+  	$output = '';
+	
+	$checked = (@$activate == 1 ? 'checked' : '');
+	$output .= '<label><input type="checkbox" id="activate_contact" name="activate_contact" value="1" '.$checked.'/>Activate Custom Contact Form</label><br>';
+	echo $output;
 }
 
 //*Sanitization Settings*
