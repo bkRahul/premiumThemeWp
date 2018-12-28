@@ -25,20 +25,21 @@ This is the template for the header
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body class="<?php body_class(); ?>">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-xs-12 col-md-12">
 
 				<div class="header-container " style="background-image: url(<?php header_image(); ?>)">
 
-					<div class="header-content text-center">
-						<h1 class="site-title"><?php bloginfo('name'); ?></h1>
-						<h3 class="site-description"><?php bloginfo('description'); ?></h3>
+					<div class="header-content text-center table">
+						<div class="table-cell">
+							<h1 class="site-title"><?php bloginfo('name'); ?></h1>
+							<h3 class="site-description"><?php bloginfo('description'); ?></h3>						
+						</div><!-- .table-cell -->
 					</div><!-- .header-content -->
 
 					<div class="header-nav">
-						
 					</div><!-- .header-nav -->
 
 				</div><!-- .header-container -->
