@@ -9,6 +9,15 @@ This is the theme style for the sunsetWp theme
 */
 
 
+/*
+------------Gneric style------------------
+*/
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+
 
 /*
 ------------Header style------------------
@@ -22,4 +31,17 @@ This is the theme style for the sunsetWp theme
     background-position-y: -140px;
     background-position-x: center;
     background-repeat: no-repeat;
+}
+
+.table {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.table-cell {
+	display: table-cell;
+	height: 100%;
+	width: 100%;
+	vertical-align: middle;
 }
