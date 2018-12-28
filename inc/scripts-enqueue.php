@@ -80,6 +80,9 @@ function sunsetWp_script_enqueue() {
 	wp_enqueue_script('bootstrapjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array('jquery'), '4.0.0', true);
 
 	wp_enqueue_script('sunsetWpjs', get_template_directory_uri().'/js/sunsetWp.js', array(), '1.0', true);
+
+	wp_enqueue_script('raleway', 'https://fonts.googleapis.com/css?family=Raleway:300,400');
+
 }
 
 add_action('wp_enqueue_scripts', 'sunsetWp_script_enqueue');
