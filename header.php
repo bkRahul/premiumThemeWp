@@ -34,12 +34,18 @@ This is the template for the header
 
 					<div class="header-content text-center table">
 						<div class="table-cell">
-							<h1 class="site-title"><?php bloginfo('name'); ?></h1>
+							<h1 class="site-title sunset-icon"><span class="sunset-logo"></span><span class="hide"><?php bloginfo('name'); ?></span></h1>
 							<h3 class="site-description"><?php bloginfo('description'); ?></h3>						
 						</div><!-- .table-cell -->
 					</div><!-- .header-content -->
 
-					<div class="header-nav">
+					<div class="nav-container">
+						<nav class="navbar navbar-default header-nav">
+							<?php wp_nav_menu(array(
+								'theme_location' => 'primary',
+								'container' => false,
+								'menu_class' =>'nav navbar-nav'))?>
+						</nav>
 					</div><!-- .header-nav -->
 
 				</div><!-- .header-container -->
