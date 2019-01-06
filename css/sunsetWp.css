@@ -1,47 +1,137 @@
 /*
 
-
 This is the theme style for the sunsetWp theme
-
 @package SunsetWp
 
-
 */
-
-
 /*
-------------Gneric style------------------
+------------Mixins------------------
 */
-
+/*
+------------Generic style------------------
+*/
 body {
-	font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
-
-
 
 /*
 ------------Header style------------------
 */
-
 .header-container {
-    height: 350px;
-    display: block;
-    position: relative;
-    background-size: cover;
-    background-position-y: -140px;
-    background-position-x: center;
-    background-repeat: no-repeat;
+  height: 350px;
+  display: block;
+  position: relative;
+  background-size: cover;
+  background-position-y: -140px;
+  background-position-x: center;
+  background-repeat: no-repeat;
 }
 
 .table {
-	display: table;
-	width: 100%;
-	height: 100%;
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.table .table-cell {
+  display: table-cell;
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
 }
 
-.table-cell {
-	display: table-cell;
-	height: 100%;
-	width: 100%;
-	vertical-align: middle;
+.header-nav-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+.header-nav-container .header-nav {
+  align-items: center;
+  justify-content: center;
+}
+.header-nav-container .header-nav ul.mr-auto {
+  margin-right: 0 !important;
+}
+.header-nav-container .header-nav ul li.active a {
+  opacity: 1;
+}
+.header-nav-container .header-nav ul li.active a:after {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+}
+.header-nav-container .header-nav ul li.show a {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.header-nav-container .header-nav ul li.show a:after {
+  opacity: 0;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+}
+.header-nav-container .header-nav ul li.show a:hover, .header-nav-container .header-nav ul li.show a:focus, .header-nav-container .header-nav ul li.show a:visited {
+  opacity: 1;
+}
+.header-nav-container .header-nav ul li.show a:hover:after, .header-nav-container .header-nav ul li.show a:focus:after, .header-nav-container .header-nav ul li.show a:visited:after {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+}
+.header-nav-container .header-nav ul li a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.7;
+  padding: 0.5rem 1rem;
+  -webkit-transition: opacity 320ms ease;
+  -moz-transition: opacity 320ms ease;
+  -ms-transition: opacity 320ms ease;
+  -o-transition: opacity 320ms ease;
+  transition: opacity 320ms ease;
+}
+.header-nav-container .header-nav ul li a:hover, .header-nav-container .header-nav ul li a:focus, .header-nav-container .header-nav ul li a:visited {
+  opacity: 1;
+}
+.header-nav-container .header-nav ul li a:hover:after, .header-nav-container .header-nav ul li a:focus:after, .header-nav-container .header-nav ul li a:visited:after {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+}
+.header-nav-container .header-nav ul li a:after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 4px;
+  left: 14px;
+  right: 12px;
+  height: 2px;
+  background: #fff;
+  opacity: 0;
+  -webkit-transition: all 320ms ease;
+  -moz-transition: all 320ms ease;
+  -ms-transition: all 320ms ease;
+  -o-transition: all 320ms ease;
+  transition: all 320ms ease;
+  -webkit-transform: translateY(15px);
+  -moz-transform: translateY(15px);
+  -ms-transform: translateY(15px);
+  -o-transform: translateY(15px);
+  transform: translateY(15px);
+}
+
+/*# sourceMappingURL=sunsetWp.css.map */

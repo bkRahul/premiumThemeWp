@@ -30,25 +30,40 @@ This is the template for the header
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
 
-				<div class="header-container " style="background-image: url(<?php header_image(); ?>)">
+			<div class="header-container " style="background-image: url(<?php header_image(); ?>)">
 
-					<div class="header-content text-center table">
-						<div class="table-cell">
-							<h1 class="site-title sunset-icon"><span class="sunset-logo"></span><span class="hide"><?php bloginfo('name'); ?></span></h1>
-							<h3 class="site-description"><?php bloginfo('description'); ?></h3>						
-						</div><!-- .table-cell -->
-					</div><!-- .header-content -->
+				<div class="header-content text-center table">
+					<div class="table-cell">
+						<h1 class="site-title sunset-icon"><span class="sunset-logo"></span><span class="hide"><?php bloginfo('name'); ?></span></h1>
+						<h3 class="site-description"><?php bloginfo('description'); ?></h3>						
+					</div><!-- .table-cell -->
+				</div><!-- .header-content -->
 
-					<div class="nav-container">
-						<nav class="navbar navbar-default header-nav">
-							<?php wp_nav_menu(array(
-								'theme_location' => 'primary',
-								'container' => false,
-								'menu_class' =>'nav navbar-nav'))?>
-						</nav>
-					</div><!-- .header-nav -->
+				<div class="header-nav-container">
+					
+					<nav class="navbar navbar-expand-lg navbar-light">
+					  <!-- <a class="navbar-brand" href="<?php echo get_bloginfo('url'); ?>"><?php echo get_bloginfo( 'name' ); ?></a> -->
+					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+					  </button>
 
-				</div><!-- .header-container -->
+					  <div class="header-nav collapse navbar-collapse" id="navbarSupportedContent">
+						<?php wp_nav_menu(array(
+							'theme_location'=>'primary',
+							'container'=>false,
+							'menu_class'=>'navbar-nav mr-auto',
+							'menu_item'=>'nav-item',
+							'walker'=> new sunsetWp_Walker_Nav_Primary()	
+						)); ?>
+
+					<!-- <div class="search-form-container"><?php get_search_form(); ?>
+					</div> -->
+
+					 </div>
+					</nav>
+
+				</div><!-- .header-nav -->
+
+			</div><!-- .header-container -->
 
 			</div><!-- .col-xs-12 -->
 		</div><!-- .row -->
