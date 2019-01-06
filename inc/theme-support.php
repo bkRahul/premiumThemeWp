@@ -47,4 +47,13 @@
 	}
 
 
+
+	//add theme support for menu
+
+	function sunsetWp_register_nav_menu() {
+		register_nav_menu('primary', 'Header Navigation Menu');
+	}
+
+	add_action('init', 'sunsetWp_register_nav_menu');
+
 ?>
