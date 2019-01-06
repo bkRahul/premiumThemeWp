@@ -1,0 +1,143 @@
+/*
+
+This is the theme style for the sunsetWp theme
+@package SunsetWp
+
+*/
+
+
+/*
+------------Mixins------------------
+*/
+
+@mixin animate($attr, $time) {
+
+	-webkit-transition: $attr $time ease;
+	-moz-transition: $attr $time ease;
+	-ms-transition: $attr $time ease;
+	-o-transition: $attr $time ease;
+	transition: $attr $time ease;
+}
+
+@mixin transform($val) {
+
+	-webkit-transform: $val;
+	-moz-transform: $val;
+	-ms-transform: $val;
+	-o-transform: $val;
+	transform: $val;
+}
+
+/*
+------------Generic style------------------
+*/
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+
+
+/*
+------------Header style------------------
+*/
+
+.header-container {
+    height: 350px;
+    display: block;
+    position: relative;
+    background-size: cover;
+    background-position-y: -140px;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+
+.table {
+	display: table;
+	width: 100%;
+	height: 100%;
+
+.table-cell {
+	display: table-cell;
+	height: 100%;
+	width: 100%;
+	vertical-align: middle;
+}
+}
+
+.header-nav-container {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: rgba(0,0,0, 0.4);
+	border-top: 1px solid rgba(255,255,255, 0.1);
+
+	.header-nav {
+		align-items: center;
+		justify-content: center;
+
+		ul {
+			&.mr-auto {
+				margin-right: 0 !important;
+			}
+			li {
+				&.active {
+					a {
+						opacity: 1;
+						&:after {
+							opacity: 1;
+							@include transform(translateY(0px));
+						}
+					}
+				}
+				&.show {
+					a {
+						opacity: 1;
+						background-color: rgba(0,0,0,0.1);
+						&:after {
+							opacity: 0;
+							@include transform(translateY(0px));
+						}
+						&:hover,&:focus,&:visited {
+							opacity:1;
+							&:after {
+								opacity: 1;
+								@include transform(translateY(0px));
+							}
+						}						
+					}
+				}
+				a {
+					display: block;
+					position: relative;
+					text-decoration: none;
+					color: #fff;
+					opacity: 0.7;
+					padding: .5rem 1rem;
+					@include animate(opacity, 320ms);
+					&:hover,&:focus,&:visited {
+						opacity:1;
+						&:after {
+							opacity: 1;
+							@include transform(translateY(0px));
+						}
+					}
+					&:after {
+						content: '';
+						position: absolute;
+						display: block;
+						bottom: 4px;
+						left: 14px;
+						right: 12px;
+						height: 2px;
+						background: #fff;
+						opacity: 0;
+						@include animate(all, 320ms);
+						@include transform(translateY(15px));
+					}
+				}
+			}
+		}
+	}
+}
