@@ -1,6 +1,6 @@
 /*
 
-This is the theme style for the sunsetWp theme
+This is the sas style file for the sunsetWp theme
 @package SunsetWp
 
 */
@@ -82,6 +82,19 @@ body {
 				margin-right: 0 !important;
 			}
 			li {
+				&.dropdown {
+					a {
+						opacity: 1;
+						&:after {
+							position:static;
+							display: inline-block;
+							background: none;
+						}
+					}
+				ul {
+					background-color: #d51512;
+				}	
+				}
 				&.active {
 					a {
 						opacity: 1;
@@ -97,7 +110,7 @@ body {
 						background-color: rgba(0,0,0,0.1);
 						&:after {
 							opacity: 0;
-							@include transform(translateY(0px));
+							@include transform(translateY(10px));
 						}
 						&:hover,&:focus,&:visited {
 							opacity:1;
