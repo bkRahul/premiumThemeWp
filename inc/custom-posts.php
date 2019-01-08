@@ -6,7 +6,9 @@
 	=======================================
 
 	*/
+?>
 
+<?php
 	$contact = get_option('activate_contact');
 
 	//add custom Post Message for Contact form
