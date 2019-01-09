@@ -1,5 +1,19 @@
 <?php
+/*
 
+
+This is the template for the theme support options
+
+@package SunsetWp
+
+
+*/
+?>
+
+
+
+
+<?php
 	/*
 
 	=======================================
@@ -46,7 +60,10 @@
 	
 	}
 
-
+	//add theme support for featured image
+ 
+	add_theme_support('post-thumbnails');
+ 
 
 	//add theme support for menu
 

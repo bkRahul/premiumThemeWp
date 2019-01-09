@@ -14,7 +14,7 @@ This is the template for the standard post content
 	<header class="entry-header">
 		<?php the_title('<h1 class="entry-title">', '</h1>') ?>
 		<div class="entry-meta">
-			<?php sunsetWp_posts_meta(); ?>
+			<?php echo sunsetWp_posts_meta(); ?>
 		</div><!-- .entry-meta -->
 	</header>
 
@@ -35,6 +35,6 @@ This is the template for the standard post content
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-			<?php sunsetWp_posts_footer() ?>
+			<?php echo sunsetWp_posts_footer() ?>
 	</footer>	
 </article>

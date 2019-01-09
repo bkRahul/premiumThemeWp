@@ -25,7 +25,7 @@ This is the template for the header
 	<?php wp_head(); ?>
 </head>
 
-<body class="<?php body_class(); ?>">
+<body <?php body_class(); ?>>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
