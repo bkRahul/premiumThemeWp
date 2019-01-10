@@ -34,7 +34,7 @@ This is the template for the header
 
 				<div class="header-content text-center table">
 					<div class="table-cell">
-						<h1 class="site-title sunset-icon"><span class="sunset-logo"></span><span class="hide"><?php bloginfo('name'); ?></span></h1>
+						<h1 class="site-title sunset-icon"><span class="sunset-logo"></span><span class="d-none"><?php bloginfo('name'); ?></span></h1>
 						<h3 class="site-description"><?php bloginfo('description'); ?></h3>						
 					</div><!-- .table-cell -->
 				</div><!-- .header-content -->
