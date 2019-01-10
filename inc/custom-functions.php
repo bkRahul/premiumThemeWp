@@ -29,8 +29,27 @@ endif;
 	return '<span class="posted-on">Posted <a href="'.esc_url( get_permalink() ).'">'. $posted_on . '</a> ago / </span><span class="posted-in">'. $output .'</span>';
 }
 
+
+//post loop footer custom function 
 function sunsetWp_posts_footer() {
-	return 'This is post footer section';
+	$commentsnum = get_comments_number();
+	if ( comments_open() ) {
+
+		if ($commentsnum == 0) {
+			$comments = __('No Comments');
+		}
+		elseif ($commentsnum == 1) {
+			$comments = __('1 Comment');
+		}
+		else {
+			$comments = $commentsnum . __(' Comments');
+		}
+		$comments = '<a href="'. get_comments_link() .'">'. $comments .' <span class="sunset-icon sunset-comment"></span></a>';
+	}
+	else {
+		$comments = __('Comments are closed'); 
+	}
+	return '<div class="post-footer-container"><div class="row"><div class="col-xs-12 col-md-6">'. get_the_tag_list('<div class="tags-list"><span class="sunset-icon sunset-tag"></span>', ' ', '</div>') .'</div><div class="col-xs-12 col-md-6">' . $comments . '</div></div></div>';
 }
 
 ?>
