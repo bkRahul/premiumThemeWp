@@ -66,7 +66,7 @@ function sunsetWp_script_enqueue() {
 
 	wp_enqueue_style('sunsetWpstyle', get_template_directory_uri().'/css/sunsetWp.css', array(), '1.0', 'all');
 
-	wp_enqueue_style('raleway', 'https://fonts.googleapis.com/css?family=Raleway:300,400');
+	wp_enqueue_style('raleway', 'https://fonts.googleapis.com/css?family=Raleway:200,300,400');
 
 //js
 
