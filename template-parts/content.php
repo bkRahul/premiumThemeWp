@@ -12,7 +12,7 @@ This is the template for the standard post content
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 	<header class="entry-header text-center">
-		<?php the_title('<h1 class="entry-title">', '</h1>') ?>
+		<?php the_title('<h1 class="entry-title"><a href="'.esc_url( get_permalink() ).'">', '</a></h1>') ?>
 		<div class="entry-meta">
 			<?php echo sunsetWp_posts_meta(); ?>
 		</div><!-- .entry-meta -->
@@ -31,8 +31,8 @@ This is the template for the standard post content
 			<?php the_excerpt(); ?>
 		</div>
 
-		<div class="button-container">
-			<a href="<?php the_permalink(); ?>" class="btn btn-default"><?php _e('Read More'); ?></a>
+		<div class="button-container text-center">
+			<a href="<?php the_permalink(); ?>" class="btn btn-sunsetWp"><?php _e('Read More'); ?></a>
 		</div>
 	</div><!-- .entry-content -->
 

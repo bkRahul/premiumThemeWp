@@ -8,12 +8,8 @@ This is the template for the theme support options
 
 
 */
-?>
 
 
-
-
-<?php
 	/*
 
 	=======================================

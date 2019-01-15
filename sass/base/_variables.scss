@@ -1,6 +1,6 @@
 /*
 
-This is the sass style file for the sunsetWp theme
+This is the sass variables base file for the sunsetWp theme
 @package SunsetWp
 
 */
@@ -11,5 +11,8 @@ This is the sass style file for the sunsetWp theme
 
 $icon-font : 'sunset-icon';
 $body-font : 'Raleway', 'Helvetica Neue', Arial, Verdana, sans-serif;
+
+$primary-color : #000000;
+$secondary-color : #ff0000;
 $light-grey : #898989;
 $dark-grey : #333333;

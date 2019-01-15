@@ -1,61 +1,24 @@
 /*
 
-This is the sas style file for the sunsetWp theme
+This is the sass style file for the sunsetWp theme
 @package SunsetWp
 
 */
+
+@import 'base/placeholders';
 
 /*
 ------------Variables------------------
 */
 
-$icon-font : 'sunset-icon';
-$body-font : 'Raleway', 'Helvetica Neue', Arial, Verdana, sans-serif;
+@import 'base/variables';
 
 
-/* 
-	Font Icon 
-	------------------------------------------------
+/*
+------------Font-icon------------------
 */
 
-@font-face {
-    font-family: 'sunset-icon';
-    src:    url('../fonts/sunset-icon.eot?dxcjr7');
-    src:    url('../fonts/sunset-icon.eot?dxcjr7#iefix') format('embedded-opentype'),
-        url('../fonts/sunset-icon.ttf?dxcjr7') format('truetype'),
-        url('../fonts/sunset-icon.woff?dxcjr7') format('woff'),
-        url('../fonts/sunset-icon.svg?dxcjr7#sunset-icon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.sunset-icon { 
-	font-family: $icon-font!important;
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-} 
-
-.sunset-audio:before { content: "\e800"; }
-.sunset-chevron-left:before { content: "\e801"; }
-.sunset-chevron-right:before { content: "\e802"; }
-.sunset-close:before { content: "\e803"; }
-.sunset-comment:before { content: "\e804"; }
-.sunset-link:before { content: "\e805"; }
-.sunset-loading:before { content: "\e806"; }
-.sunset-logo:before { content: "\e807"; }
-.sunset-menu:before { content: "\e808"; }
-.sunset-pencil:before { content: "\e809"; }
-.sunset-pics:before { content: "\e80a"; }
-.sunset-search:before { content: "\e80b"; }
-.sunset-share:before { content: "\e80c"; }
-.sunset-tag:before { content: "\e80d"; }
-.sunset-video:before { content: "\e80e"; }
+@import 'base/fonticon';
 
 
 /*
@@ -85,11 +48,31 @@ $body-font : 'Raleway', 'Helvetica Neue', Arial, Verdana, sans-serif;
 */
 
 body {
-	font-family: 'Raleway', sans-serif;
+	font-family: $body-font;
 }
 
+p {
+	color: $dark-grey;
+}
 
+a {
+	color: $light-grey;
+	&:hover, &:focus {
+		color: $dark-grey;
+		text-decoration: none;
+		@include animate(all, 320ms);
+	}
+}
 
+.background-image {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+}
+
+article {
+    margin: 60px 0px;
+}
 /*
 ------------Header style------------------
 */
@@ -102,9 +85,11 @@ body {
 
 .site-description {
 	color: #fff;
+	font-weight: 300;
 }
 
 .header-container {
+	@extend %text-shadow;
     height: 350px;
     display: block;
     position: relative;
@@ -146,7 +131,6 @@ body {
 			li {
 				&.dropdown {
 					a {
-						opacity: 1;
 						&:after {
 							position:static;
 							display: inline-block;
@@ -213,6 +197,152 @@ body {
 					}
 				}
 			}
+		}
+	}
+}
+
+
+/*
+------------Standard Post Format------------------
+*/
+
+.entry-header {
+	h1 {
+		font-weight: 200;
+		a {
+			color: $primary-color;
+			&:hover, &:focus {
+				color: $secondary-color;
+			}			
+		}
+		&.entry-title {
+			margin: 0 0 20px;
+			&:before, &:after {
+				content: '~';
+				display: inline-block;
+			}
+			&:before {
+				margin-right: 20px;
+			}
+			&:after {
+				margin-left: 20px;
+			}
+		}
+	}
+	div.entry-meta {
+		font-size: 13px;
+		font-weight: 300;
+		margin-bottom: 20px;
+		color: $light-grey;
+		a {
+			font-weight: 500;
+			color: $light-grey;
+			&:hover, &:focus {
+				color: $dark-grey;
+			}	
+		}
+	}
+}
+
+
+.standard-featured-link {
+	display: block;
+	position: relative;
+	&:hover, &:focus {
+		.standard-featured-image {
+			&:after {background-color: rgba(0,0,0,0);}
+		}
+	}
+}
+.standard-featured-image {
+	height: 360px;
+	position: relative;
+	&:after {
+		content:'';
+		position: absolute;
+		display: block;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.15);
+		box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.35);
+		@include animate(background-color, 320ms);
+	}
+}
+
+.entry-excerpt {
+	margin: 20px 0;
+	p {
+		font-size: 16px;
+	}
+}
+
+.button-container {
+	margin-bottom: 18px;
+}
+
+.btn-sunsetWp {
+	font-size: 14px;
+	color: $light-grey;
+    border: 1px solid $light-grey;
+	text-transform: uppercase;
+	padding: 6px 18px;
+	border-radius: 0;
+	@include animate(all, 320ms);
+	&:hover, &:focus {
+		color: #ffffff;
+		border: 1px solid #000000;
+		background-color: #000000;
+	}	
+}
+
+.entry-footer {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: $light-grey;
+    padding: 8px 25px;
+    border-bottom: 4px solid $light-grey;
+    word-spacing: 0.9em;
+}
+
+.sunset-tag {
+	margin-right: 10px;
+}
+
+
+/*
+------------Image Post Format------------------
+*/
+
+
+.sunsetWp-image-post {
+	.entry-header {
+		@extend %text-shadow;
+		height: 360px;
+		position: relative;	
+		padding-top: 30px;
+		color: #fff;
+		h1, div.entry-meta, .entry-excerpt p {
+			color: #fff;
+			a {
+				color: #fff;
+				@include animate(all, 320ms);
+				&:hover, &:focus {
+					color: #000;
+				}
+			}	
+		}
+	}
+	.entry-excerpt {
+		&.image-caption {
+			@extend %background-gradient;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: 0;
 		}
 	}
 }
