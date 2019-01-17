@@ -9,7 +9,8 @@
 
 
 
-//post loop meta custom function 
+//post loop meta custom function
+
 function sunsetWp_posts_meta() {
 
 	$posted_on = human_time_diff( get_the_time('U'), current_time('timestamp') );
@@ -30,7 +31,8 @@ endif;
 
 
 
-//post loop footer custom function 
+//post loop footer custom function
+
 function sunsetWp_posts_footer() {
 	$commentsnum = get_comments_number();
 	if ( comments_open() ) {
@@ -79,4 +81,11 @@ function featured_image() {
 	return $output;
 }
 
+//custom function to get media content in posts
+
+function get_embedded_media_content( $type = array()) {
+	$content = do_shortcode( apply_filters( 'the_content', get_the_content() ));
+	$embed = get_media_embedded_in_content( $content, $type);
+	return $embed[0];
+}
 ?>

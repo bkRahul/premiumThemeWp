@@ -450,4 +450,25 @@ article {
   margin: 0;
 }
 
+/*
+------------Image Post Format------------------
+*/
+.sunsetWp-audio-post iframe {
+  width: 560px;
+  height: 300px;
+}
+.sunsetWp-audio-post .entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+------------Video Post Format------------------
+*/
+.sunsetWp-video-post .embed-responsive-16by9 {
+  height: 360px;
+  width: 100%;
+}
+
 /*# sourceMappingURL=sunsetWp.css.map */
