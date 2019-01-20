@@ -67,7 +67,7 @@ a {
 .background-image {
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 100%;
+	background-size: cover;
 }
 
 article {
@@ -94,8 +94,6 @@ article {
     display: block;
     position: relative;
     background-size: cover;
-    background-position-y: -140px;
-    background-position-x: center;
     background-repeat: no-repeat;
 }
 
@@ -206,44 +204,42 @@ article {
 ------------Standard Post Format------------------
 */
 
-.entry-header {
-	h1 {
-		font-weight: 200;
-		a {
-			color: $primary-color;
-			&:hover, &:focus {
-				color: $secondary-color;
-			}			
-		}
-		&.entry-title {
-			margin: 0 0 20px;
-			&:before, &:after {
-				content: '~';
-				display: inline-block;
-			}
-			&:before {
-				margin-right: 20px;
-			}
-			&:after {
-				margin-left: 20px;
-			}
-		}
+
+h1 {
+	font-weight: 200;
+	a {
+		color: $primary-color;
+		&:hover, &:focus {
+			color: $secondary-color;
+		}			
 	}
-	div.entry-meta {
-		font-size: 13px;
-		font-weight: 300;
-		margin-bottom: 20px;
-		color: $light-grey;
-		a {
-			font-weight: 500;
-			color: $light-grey;
-			&:hover, &:focus {
-				color: $dark-grey;
-			}	
+	&.entry-title {
+		margin: 0 0 20px;
+		&:before, &:after {
+			content: '~';
+			display: inline-block;
+		}
+		&:before {
+			margin-right: 20px;
+		}
+		&:after {
+			margin-left: 20px;
 		}
 	}
 }
-
+div.entry-meta {
+	font-size: 13px;
+	font-weight: 300;
+	margin-bottom: 20px;
+	color: $light-grey;
+	a {
+		font-weight: 500;
+		color: $light-grey;
+		&:hover, &:focus {
+			color: $dark-grey;
+		}	
+	}
+}
 
 .standard-featured-link {
 	display: block;
@@ -372,11 +368,63 @@ article {
 
 
 .sunsetWp-video-post {
+	h1.entry-title {
+		margin: 15px 0 20px;
+	}
 	.embed-responsive-16by9 {
     	height: 360px;
     	width: 100%;
 	}
-	.entry-header h1.entry-title {
+}
+
+
+/*
+------------Video Post Format------------------
+*/
+
+
+.sunsetWp-gallery-post {
+	h1.entry-title {
 		margin: 15px 0 20px;
+	}
+	.preview-container {
+		position: relative;
+		padding: 25px;
+		background: rgba(0, 0, 0, 0);
+		.slider-thumbnail {
+			position: absolute;
+			top: 6px;			
+			display: block;
+			height: 65px;
+			width: 65px;
+			border-radius: 50%;
+			background-color: #000;
+			@include animate(transform, 320ms);
+			@include transform(scale(0) );			
+		}
+		&:hover, &:focus {
+			background-color: rgba(0, 0, 0, 0.8);
+			.slider-thumbnail { @include transform(scale(1) ); }
+		}
+	}
+	.carousel {
+		.right {
+			.preview-container {
+				padding-left: 85px;
+				border-radius: 50px 0 0 50px;
+				.slider-thumbnail {
+					left: 1px;
+				}
+			}
+		}
+		.left {
+			.preview-container {
+				padding-right: 85px;
+				border-radius: 0 50px 50px 0;			
+				.slider-thumbnail {
+					right: 1px;
+				}				
+			}
+		}		
 	}
 }

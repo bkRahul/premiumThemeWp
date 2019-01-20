@@ -162,7 +162,7 @@ a:hover, a:focus {
 .background-image {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
 }
 
 article {
@@ -187,8 +187,6 @@ article {
   display: block;
   position: relative;
   background-size: cover;
-  background-position-y: -140px;
-  background-position-x: center;
   background-repeat: no-repeat;
 }
 
@@ -310,39 +308,40 @@ article {
 /*
 ------------Standard Post Format------------------
 */
-.entry-header h1 {
+h1 {
   font-weight: 200;
 }
-.entry-header h1 a {
+h1 a {
   color: #000000;
 }
-.entry-header h1 a:hover, .entry-header h1 a:focus {
+h1 a:hover, h1 a:focus {
   color: #ff0000;
 }
-.entry-header h1.entry-title {
+h1.entry-title {
   margin: 0 0 20px;
 }
-.entry-header h1.entry-title:before, .entry-header h1.entry-title:after {
+h1.entry-title:before, h1.entry-title:after {
   content: "~";
   display: inline-block;
 }
-.entry-header h1.entry-title:before {
+h1.entry-title:before {
   margin-right: 20px;
 }
-.entry-header h1.entry-title:after {
+h1.entry-title:after {
   margin-left: 20px;
 }
-.entry-header div.entry-meta {
+
+div.entry-meta {
   font-size: 13px;
   font-weight: 300;
   margin-bottom: 20px;
   color: #898989;
 }
-.entry-header div.entry-meta a {
+div.entry-meta a {
   font-weight: 500;
   color: #898989;
 }
-.entry-header div.entry-meta a:hover, .entry-header div.entry-meta a:focus {
+div.entry-meta a:hover, div.entry-meta a:focus {
   color: #333333;
 }
 
@@ -466,9 +465,67 @@ article {
 /*
 ------------Video Post Format------------------
 */
+.sunsetWp-video-post h1.entry-title {
+  margin: 15px 0 20px;
+}
 .sunsetWp-video-post .embed-responsive-16by9 {
   height: 360px;
   width: 100%;
+}
+
+/*
+------------Video Post Format------------------
+*/
+.sunsetWp-gallery-post h1.entry-title {
+  margin: 15px 0 20px;
+}
+.sunsetWp-gallery-post .preview-container {
+  position: relative;
+  padding: 25px;
+  background: rgba(0, 0, 0, 0);
+}
+.sunsetWp-gallery-post .preview-container .slider-thumbnail {
+  position: absolute;
+  top: 6px;
+  display: block;
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  background-color: #000;
+  -webkit-transition: transform 320ms ease;
+  -moz-transition: transform 320ms ease;
+  -ms-transition: transform 320ms ease;
+  -o-transition: transform 320ms ease;
+  transition: transform 320ms ease;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+.sunsetWp-gallery-post .preview-container:hover, .sunsetWp-gallery-post .preview-container:focus {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.sunsetWp-gallery-post .preview-container:hover .slider-thumbnail, .sunsetWp-gallery-post .preview-container:focus .slider-thumbnail {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.sunsetWp-gallery-post .carousel .right .preview-container {
+  padding-left: 85px;
+  border-radius: 50px 0 0 50px;
+}
+.sunsetWp-gallery-post .carousel .right .preview-container .slider-thumbnail {
+  left: 1px;
+}
+.sunsetWp-gallery-post .carousel .left .preview-container {
+  padding-right: 85px;
+  border-radius: 0 50px 50px 0;
+}
+.sunsetWp-gallery-post .carousel .left .preview-container .slider-thumbnail {
+  right: 1px;
 }
 
 /*# sourceMappingURL=sunsetWp.css.map */
