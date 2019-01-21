@@ -19,24 +19,33 @@ This is the template for the standard gallery content
 			<div id="post-gallery-<?php the_ID(); ?>" class="carousel slide" data-ride="carousel"> 
 				<div class="carousel-inner" role="listbox">
 					<?php
-						$i=0;
-						foreach ($attachments as $attachment):
-						$active = ( $i == 0 ? ' active' : '' );  ?>
-						<div class="carousel-item background-image <?php echo $active; ?>" style="height:360px; background-image: url(<?php echo wp_get_attachment_url( $attachment->ID ); ?>)"></div>
-					<?php
-						$i++;
-						endforeach; ?>
+					$count =  count($attachments)-1;
+						for ( $i=0; $i <= $count; $i++ ):
+						$active = ( $i == 0 ? ' active' : '' );
+						$n = ( $i == $count ? 0 : $i+1 );
+						$nextimg = wp_get_attachment_thumb_url( $attachments[$n]->ID );
+						$p = ( $i == 0 ? $count : $i-1 );
+						$previmg = wp_get_attachment_thumb_url( $attachments[$p]->ID );
+					?>
+
+						<div class="carousel-item background-image <?php echo $active; ?>" style="height:360px; background-image: url(<?php echo wp_get_attachment_url( $attachments[$i]->ID ); ?>)">
+
+							<div class="d-none nextimg-preview" data-image="<?php echo $nextimg ?>"></div>
+							<div class="d-none previmg-preview" data-image="<?php echo $previmg ?>"></div>
+						</div>
+
+					<?php endfor; ?>
 				</div><!-- .carousel-inner -->
 				<a class="carousel-control-next right" href="#post-gallery-<?php the_ID(); ?>" role="button" data-slide="next">
 				    <div class="preview-container">
-				    	<span class="slider-thumbnail"></span>
+				    	<span class="slider-thumbnail background-image"></span>
 					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 					    <span class="sr-only">Next</span>
 				    </div>
 				</a>
 				<a class="carousel-control-prev left" href="#post-gallery-<?php the_ID(); ?>" role="button" data-slide="prev">
 				    <div class="preview-container">
-				    	<span class="slider-thumbnail"></span>
+				    	<span class="slider-thumbnail background-image"></span>
 					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					    <span class="sr-only">Previous</span>
 					</div>
