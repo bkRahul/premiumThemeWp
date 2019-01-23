@@ -16,7 +16,7 @@ This is the template for the standard gallery content
 		<?php if( featured_image() ): 
 			$attachments = featured_image(5); ?>
 		<a class="standard-featured-link" href="<?php the_permalink(); ?>">
-			<div id="post-gallery-<?php the_ID(); ?>" class="carousel slide" data-ride="carousel"> 
+			<div id="post-gallery-<?php the_ID(); ?>" class="carousel slide gallery-post" data-ride="carousel"> 
 				<div class="carousel-inner" role="listbox">
 					<?php
 					$count =  count($attachments)-1;
@@ -32,6 +32,10 @@ This is the template for the standard gallery content
 
 							<div class="d-none nextimg-preview" data-image="<?php echo $nextimg ?>"></div>
 							<div class="d-none previmg-preview" data-image="<?php echo $previmg ?>"></div>
+
+							<div class="entry-excerpt image-caption text-center">
+								<p><?php echo $attachments[$i]->post_excerpt; ?></p>
+							</div>
 						</div>
 
 					<?php endfor; ?>
