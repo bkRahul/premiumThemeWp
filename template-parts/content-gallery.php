@@ -13,32 +13,25 @@ This is the template for the standard gallery content
 <article id="post-<?php the_ID(); ?>" <?php post_class('sunsetWp-gallery-post'); ?> >
 	<header class="entry-header">
 
-		<?php if( featured_image() ): 
-			$attachments = featured_image(5); ?>
+		<?php if( featured_image() ):  ?>
 		<a class="standard-featured-link" href="<?php the_permalink(); ?>">
 			<div id="post-gallery-<?php the_ID(); ?>" class="carousel slide gallery-post" data-ride="carousel"> 
 				<div class="carousel-inner" role="listbox">
-					<?php
-					$count =  count($attachments)-1;
-						for ( $i=0; $i <= $count; $i++ ):
-						$active = ( $i == 0 ? ' active' : '' );
-						$n = ( $i == $count ? 0 : $i+1 );
-						$nextimg = wp_get_attachment_thumb_url( $attachments[$n]->ID );
-						$p = ( $i == 0 ? $count : $i-1 );
-						$previmg = wp_get_attachment_thumb_url( $attachments[$p]->ID );
-					?>
 
-						<div class="carousel-item background-image <?php echo $active; ?>" style="height:360px; background-image: url(<?php echo wp_get_attachment_url( $attachments[$i]->ID ); ?>)">
+					<?php  $attachments = get_slider_attachments( featured_image(5) );	
+					foreach( $attachments as $attachment ): ?>
 
-							<div class="d-none nextimg-preview" data-image="<?php echo $nextimg ?>"></div>
-							<div class="d-none previmg-preview" data-image="<?php echo $previmg ?>"></div>
+						<div class="carousel-item background-image <?php echo $attachment['class']; ?>" style="height:360px; background-image: url(<?php echo $attachment['url']; ?>)">
+
+							<div class="d-none nextimg-preview" data-image="<?php echo $attachment['nextimg'] ?>"></div>
+							<div class="d-none previmg-preview" data-image="<?php echo $attachment['previmg'] ?>"></div>
 
 							<div class="entry-excerpt image-caption text-center">
-								<p><?php echo $attachments[$i]->post_excerpt; ?></p>
+								<p><?php echo $attachment['caption']; ?></p>
 							</div>
 						</div>
 
-					<?php endfor; ?>
+					<?php endforeach; ?>
 				</div><!-- .carousel-inner -->
 				<a class="carousel-control-next right" href="#post-gallery-<?php the_ID(); ?>" role="button" data-slide="next">
 				    <div class="preview-container">
@@ -67,10 +60,6 @@ This is the template for the standard gallery content
 		<div class="entry-meta">
 			<?php echo sunsetWp_posts_meta(); ?>
 		</div><!-- .entry-meta -->
-
-		<div class="entry-excerpt">
-			<?php the_excerpt(); ?>
-		</div>
 
 		<div class="button-container text-center">
 			<a href="<?php the_permalink(); ?>" class="btn btn-sunsetWp"><?php _e('Read More'); ?></a>
