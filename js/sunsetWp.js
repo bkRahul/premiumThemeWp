@@ -1,15 +1,16 @@
 jQuery(document).ready(function($) {
-	$(document).on('mouseenter', '.carousel-control-next', function() {
-		var nextThumb = $('.carousel-item.active').find('.nextimg-preview').data('image');
+	var carousel = '.gallery-post';
 
-		$(this).find('.slider-thumbnail').css({'background-image': 'url('+nextThumb+')'});
+	sunsetWp_gallery_thumbs(carousel);
 
+	$(carousel).on('slid.bs.carousel', function() {
+		sunsetWp_gallery_thumbs(carousel);
 	});
-
-	$(document).on('mouseenter', '.carousel-control-prev', function() {
+	function sunsetWp_gallery_thumbs( carousel ) {
+		var nextThumb = $('.carousel-item.active').find('.nextimg-preview').data('image');
 		var prevThumb = $('.carousel-item.active').find('.previmg-preview').data('image');
 
-		$(this).find('.slider-thumbnail').css({'background-image': 'url('+prevThumb+')'});
-
-	});
+		$(carousel).find('.carousel-control-next').find('.slider-thumbnail').css({'background-image': 'url('+nextThumb+')'});
+		$(carousel).find('.carousel-control-prev').find('.slider-thumbnail').css({'background-image': 'url('+prevThumb+')'});
+	}
 });

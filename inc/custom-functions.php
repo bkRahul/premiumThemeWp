@@ -83,6 +83,8 @@ function featured_image( $num = 1 ) {
 	return $output;
 }
 
+
+
 //custom function to get media content in posts
 
 function get_embedded_media_content( $type = array()) {
@@ -90,4 +92,32 @@ function get_embedded_media_content( $type = array()) {
 	$embed = get_media_embedded_in_content( $content, $type);
 	return $embed[0];
 }
+
+
+
+//custom function gallery post type
+
+function get_slider_attachments( $attachments ) {
+	$output = array();
+	$count =  count($attachments)-1;
+	for ( $i=0; $i <= $count; $i++ ):
+	$active = ( $i == 0 ? ' active' : '' );
+	$n = ( $i == $count ? 0 : $i+1 );
+	$nextimg = wp_get_attachment_thumb_url( $attachments[$n]->ID );
+	$p = ( $i == 0 ? $count : $i-1 );
+	$previmg = wp_get_attachment_thumb_url( $attachments[$p]->ID );
+
+	$output[$i] = array(
+		'class' 	=> $active,
+		'url'		=> wp_get_attachment_url( $attachments[$i]->ID ),
+		'nextimg' 	=> $nextimg,
+		'previmg'	=> $previmg,
+		'caption'	=> $attachments[$i]->post_excerpt 
+	);
+
+	endfor; 
+
+	return $output;
+}
+
 ?>
