@@ -18,12 +18,12 @@ This is the sass placeholders base file for the sunsetWp theme
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-.sunsetWp-image-post .entry-excerpt.image-caption {
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+.sunsetWp-gallery-post .entry-excerpt.image-caption, .sunsetWp-image-post .entry-excerpt.image-caption {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#80000000",GradientType=0 );
   /* IE6-9 */
@@ -526,6 +526,65 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 }
 .sunsetWp-gallery-post .carousel .left .preview-container .slider-thumbnail {
   right: 1px;
+}
+.sunsetWp-gallery-post .entry-excerpt.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  -webkit-transition: transform 320ms ease;
+  -moz-transition: transform 320ms ease;
+  -ms-transition: transform 320ms ease;
+  -o-transition: transform 320ms ease;
+  transition: transform 320ms ease;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%);
+}
+.sunsetWp-gallery-post .entry-excerpt p {
+  margin: 2rem 0;
+  color: #ffffff;
+}
+.sunsetWp-gallery-post:hover .entry-excerpt {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/*
+------------Video Post Format------------------
+*/
+.sunsetWp-quote-post .quote-text {
+  font-weight: 300;
+  line-height: 2em;
+  letter-spacing: 0.03em;
+  margin-bottom: 2rem;
+}
+.sunsetWp-quote-post .quote-text:before {
+  content: "❝";
+  margin-right: 0.5em;
+}
+.sunsetWp-quote-post .quote-text:after {
+  content: "❞";
+  margin-left: 0.5em;
+}
+.sunsetWp-quote-post .quote-author {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.5rem;
+  font-weight: 500;
+}
+.sunsetWp-quote-post .quote-author:before {
+  content: "—";
+  margin-right: 0.5em;
+}
+.sunsetWp-quote-post .entry-footer {
+  text-align: center;
 }
 
 /*# sourceMappingURL=sunsetWp.css.map */

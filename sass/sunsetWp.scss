@@ -427,4 +427,61 @@ div.entry-meta {
 			}
 		}		
 	}
+	.entry-excerpt {
+		&.image-caption {
+			@extend %background-gradient;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: 0;
+			@include animate(transform, 320ms);
+			@include transform( translateY(100%) );							
+		}
+		p {
+			margin: 2rem 0;
+			color: #ffffff;
+		}	
+	}
+	&:hover {
+		.entry-excerpt {
+			@include transform(translateY(0));
+		}		
+	}
+}
+
+
+/*
+------------Video Post Format------------------
+*/
+
+
+.sunsetWp-quote-post {
+	.quote-text{
+	    font-weight: 300;
+    	line-height: 2em;
+    	letter-spacing: 0.03em;
+	    margin-bottom: 2rem;
+		&:before {
+			content:'\275D';
+		    margin-right: 0.5em;	
+		}
+		&:after {
+			content:'\275E';
+		    margin-left: 0.5em;	
+		}
+	}
+	.quote-author {
+		font-size: 1rem;
+	    letter-spacing: 0.1rem;
+	    word-spacing: 0.5rem;
+	    font-weight: 500;
+		&:before {
+			content:'\2014';
+			margin-right: 0.5em;	
+		}	    
+	}
+	.entry-footer {
+		text-align: center;
+	}
 }
