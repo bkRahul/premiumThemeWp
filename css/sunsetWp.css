@@ -557,7 +557,7 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 }
 
 /*
-------------Video Post Format------------------
+------------Quote Post Format------------------
 */
 .sunsetWp-quote-post .quote-text {
   font-weight: 300;
@@ -585,6 +585,27 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 }
 .sunsetWp-quote-post .entry-footer {
   text-align: center;
+}
+
+/*
+------------Quote Post Format------------------
+*/
+.sunsetWp-aside-post .background-image {
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  background-size: 100%;
+  margin: 18px auto -18px;
+  background-position: top center;
+  box-shadow: 0 2px 0px 0px rgba(255, 255, 255, 0.4);
+}
+.sunsetWp-aside-post .entry-content {
+  background: rgba(0, 0, 0, 0.1);
+}
+.sunsetWp-aside-post .entry-footer {
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
 }
 
 /*# sourceMappingURL=sunsetWp.css.map */

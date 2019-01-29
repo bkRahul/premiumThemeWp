@@ -13,7 +13,7 @@ This is the template for the index.php
 
 <div id="primary" class="content-area">
 	<main class="site-main" role="main">
-		<div class="container">
+		<div class="container sunsetWp-posts-container">
 			<?php if( have_posts() ):
 
 				while( have_posts() ): the_post();
@@ -23,6 +23,10 @@ This is the template for the index.php
 				endwhile;
 
 			endif; ?>
+		</div>
+
+		<div class="container text-center">
+			<a class="btn btn-sunsetWp sunsetWp-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>"><span class="sunset-icon sunset-loading"> </span> Load More</a>
 		</div>
 	</main>
 </div>
