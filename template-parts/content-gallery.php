@@ -2,7 +2,7 @@
 /*
 
 
-This is the template for the standard gallery content
+This is the template for the gallery post content
 
 @package SunsetWp
 
