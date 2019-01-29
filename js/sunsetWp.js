@@ -13,4 +13,33 @@ jQuery(document).ready(function($) {
 		$(carousel).find('.carousel-control-next').find('.slider-thumbnail').css({'background-image': 'url('+nextThumb+')'});
 		$(carousel).find('.carousel-control-prev').find('.slider-thumbnail').css({'background-image': 'url('+prevThumb+')'});
 	}
+
+
+//Ajax load more function
+
+$(document).on('click', '.sunsetWp-load-more', function() {
+
+	var that = $(this);
+	var page = that.data('page');
+	var newpage = page+1;
+	var ajaxurl = that.data('url');
+	
+	$.ajax({
+		url : ajaxurl,
+		type : 'post',
+		data : {
+			page : page,
+			action : 'sunsetWp_load_more'
+		},
+		error : function( response ) {
+			console.log( response );
+		},
+		success : function( response ) {
+			that.data('page', newpage);
+			$('.sunsetWp-posts-container').append( response );
+		}
+
+	}); 
+});
+
 });
