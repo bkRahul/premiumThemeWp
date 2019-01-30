@@ -13,7 +13,8 @@ add_action('wp_ajax_nopriv_sunsetWp_load_more', 'sunsetWp_load_more');
 add_action('wp_ajax_sunsetWp_load_more', 'sunsetWp_load_more');
 
 function sunsetWp_load_more() {
-	$paged = $_POST['page']+1;
+	
+	$paged = $_POST['page'] + 1;
 	$query = new WP_Query(array(
 		'post_type' => 'post',
 		'paged' => $paged ));

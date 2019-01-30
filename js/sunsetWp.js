@@ -17,12 +17,15 @@ jQuery(document).ready(function($) {
 
 //Ajax load more function
 
-$(document).on('click', '.sunsetWp-load-more', function() {
+$(document).on('click', '.sunsetWp-load-more:not(.loading)', function() {
 
 	var that = $(this);
-	var page = that.data('page');
-	var newpage = page+1;
+	var page = $(this).data('page');
+	var newpage = page + 1;
 	var ajaxurl = that.data('url');
+
+	that.addClass('loading').find('.load-text').slideUp(320);
+	that.find('.sunset-loading').addClass('spin');
 	
 	$.ajax({
 		url : ajaxurl,
@@ -37,6 +40,8 @@ $(document).on('click', '.sunsetWp-load-more', function() {
 		success : function( response ) {
 			that.data('page', newpage);
 			$('.sunsetWp-posts-container').append( response );
+			that.removeClass('loading').find('.load-text').slideDown(320);
+			that.find('.sunset-loading').removeClass('spin');
 		}
 
 	}); 
