@@ -135,6 +135,14 @@ This is the sass style file for the sunsetWp theme
 /*
 ------------Mixins------------------
 */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /*
 ------------Generic style------------------
 */
@@ -167,6 +175,13 @@ a:hover, a:focus {
 
 article {
   margin: 60px 0px;
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 /*
@@ -606,6 +621,27 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 .sunsetWp-aside-post .entry-footer {
   background: rgba(0, 0, 0, 0.2);
   border: none;
+}
+
+/*
+------------Ajax load more posts------------------
+*/
+.btn-sunsetWp-load {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  cursor: pointer;
+  -webkit-transition: opacity 320ms ease;
+  -moz-transition: opacity 320ms ease;
+  -ms-transition: opacity 320ms ease;
+  -o-transition: opacity 320ms ease;
+  transition: opacity 320ms ease;
+}
+.btn-sunsetWp-load:hover, .btn-sunsetWp-load:focus {
+  opacity: 0.7;
+}
+.btn-sunsetWp-load span {
+  display: block;
 }
 
 /*# sourceMappingURL=sunsetWp.css.map */
