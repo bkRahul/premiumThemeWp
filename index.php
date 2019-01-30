@@ -26,7 +26,8 @@ This is the template for the index.php
 		</div>
 
 		<div class="container text-center">
-			<a class="btn btn-sunsetWp sunsetWp-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>"><span class="sunset-icon sunset-loading"> </span> Load More</a>
+			<a class="btn-sunsetWp-load sunsetWp-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>"><span class="sunset-icon sunset-loading"> </span>
+			<span class="load-text"> Load More</span></a>
 		</div>
 	</main>
 </div>
