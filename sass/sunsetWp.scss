@@ -532,6 +532,17 @@ div.entry-meta {
 ------------Ajax load more posts------------------
 */
 
+.sunsetWp-posts-container {
+	article {
+		@include animate(all, 320ms);
+		@include transform(translateY(100px));
+		opacity: 0;		
+		&.reveal {
+			@include transform(translateY(0));
+			opacity: 1;
+		}
+	}
+}
 
 .btn-sunsetWp-load {
 	display: block;
