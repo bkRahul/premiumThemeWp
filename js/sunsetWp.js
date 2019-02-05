@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 	
-	revealPosts();	
+	revealPosts();
 	
 	var carousel = '.gallery-post';
 
@@ -53,6 +53,7 @@ $(document).on('click', '.sunsetWp-load-more:not(.loading)', function() {
 			that.removeClass('loading').find('.load-text').slideDown(320);
 			that.find('.sunset-loading').removeClass('spin');
 			revealPosts();
+
 			}, 800);
 		}
 
@@ -66,6 +67,7 @@ function revealPosts() {
 	var posts = $('article:not(.reveal)');
 	var i = 0;
 	setInterval(function() {
+		sunsetWp_gallery_thumbs(carousel);
 		if( i >= posts.length) return false;
 		var el = posts[i];
 		$(el).addClass('reveal').find('.gallery-post').carousel();
