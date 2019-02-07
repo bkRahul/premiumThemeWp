@@ -16,11 +16,15 @@ This is the template for the index.php
 		<div class="container sunsetWp-posts-container">
 			<?php if( have_posts() ):
 
+				echo '<div class="page-limit" data-page="http://localhost/sunsetWp/">';
+
 				while( have_posts() ): the_post();
 
 					get_template_part( 'template-parts/content', get_post_format() );
 
 				endwhile;
+
+				echo '</div>';
 
 			endif; ?>
 		</div>

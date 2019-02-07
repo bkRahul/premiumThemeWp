@@ -22,11 +22,15 @@ function sunsetWp_load_more() {
 
 	if( $query->have_posts() ):
 
+	echo '<div class="page-limit" data-page="http://localhost/sunsetWp/page/'. $paged .'">';
+
 		while( $query->have_posts() ): $query->the_post();
 
 			get_template_part( 'template-parts/content', get_post_format() );
 
 		endwhile;	
+	
+	echo '</div>';
 
 	endif;	
 
