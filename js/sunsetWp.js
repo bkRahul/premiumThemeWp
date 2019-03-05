@@ -32,8 +32,13 @@ $(document).on('click', '.sunsetWp-load-more:not(.loading)', function() {
 
 	var that = $(this);
 	var page = $(this).data('page');
-	var newpage = page + 1;
+	var newpage = page+1;
 	var ajaxurl = that.data('url');
+	var prev = that.data('prev');
+
+	if ( typeof prev == 'undefined' ) {
+		prev = 0;
+	}
 
 	that.addClass('loading').find('.load-text').slideUp(320);
 	that.find('.sunset-loading').addClass('spin');
@@ -43,6 +48,7 @@ $(document).on('click', '.sunsetWp-load-more:not(.loading)', function() {
 		type : 'post',
 		data : {
 			page : page,
+			prev : prev,
 			action : 'sunsetWp_load_more'
 		},
 		error : function( response ) {
@@ -50,14 +56,36 @@ $(document).on('click', '.sunsetWp-load-more:not(.loading)', function() {
 		},
 		success : function( response ) {
 
+			if( response == 0 ){
+				$('.sunsetWp-posts-container').append("<h3 class='text-center'> No more posts to load</h3>");
+				that.slideUp(320);
+			}
+			else{
 			setTimeout(function() {
-			that.data('page', newpage);
-			$('.sunsetWp-posts-container').append( response );
-			that.removeClass('loading').find('.load-text').slideDown(320);
-			that.find('.sunset-loading').removeClass('spin');
-			revealPosts();
 
+				if(prev == 1) {
+
+					$('.sunsetWp-posts-container').prepend( response );
+					newpage = page-1;
+
+				}else{
+
+					$('.sunsetWp-posts-container').append( response );			
+
+				}
+				if(newpage == 1 ){
+
+					that.slideUp(320);
+
+				}else{
+				that.data( 'page', newpage );
+				that.removeClass('loading').find('.load-text').slideDown(320);
+				that.find('.sunset-loading').removeClass('spin');
+				}
+
+				revealPosts();
 			}, 500);
+		}
 		}
 
 	}); 

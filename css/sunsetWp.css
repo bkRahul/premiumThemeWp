@@ -624,7 +624,7 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 }
 
 /*
-------------Ajax load more posts------------------
+------------Ajax load posts------------------
 */
 .sunsetWp-posts-container article {
   -webkit-transition: all 320ms ease;
@@ -664,6 +664,10 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 }
 .btn-sunsetWp-load span {
   display: block;
+}
+
+.prev-post-container {
+  margin-top: 30px;
 }
 
 /*# sourceMappingURL=sunsetWp.css.map */

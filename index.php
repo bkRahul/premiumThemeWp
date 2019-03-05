@@ -13,6 +13,16 @@ This is the template for the index.php
 
 <div id="primary" class="content-area">
 	<main class="site-main" role="main">
+
+		<?php if ( is_paged() ): ?>
+
+		<div class="container prev-post-container text-center">
+			<a class="btn-sunsetWp-load sunsetWp-load-more" data-prev="1" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>"><span class="sunset-icon sunset-loading"> </span>
+			<span class="load-text"> Load Previous Posts</span></a>
+		</div>
+
+		<?php endif; ?>		
+
 		<div class="container sunsetWp-posts-container">
 			<?php if( have_posts() ):
 
@@ -25,28 +35,25 @@ This is the template for the index.php
 				endwhile;
 
 				echo '</div>';
-			?>
-				
-<div class="nav-previous alignleft" style="float: left;"><?php previous_posts_link( 'Older posts' ); ?></div>
-<div class="nav-next alignright" style="float: right;"><?php next_posts_link( 'Newer posts' ); ?></div>
 
-<?php else : ?>
-<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+			else:
+				echo 0;
+				//	Add the pagination functions here.
+				 //wpbeginner_numeric_posts_nav();
 
-
-		<?php	endif; ?>
-
+			endif; ?>
 		</div>
+		<?php 
+
+		// don't display the button if there are not enough posts
+		if (  $wp_query->max_num_pages > 1 ):  ?>
 
 		<div class="container text-center">
 			<a class="btn-sunsetWp-load sunsetWp-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>"><span class="sunset-icon sunset-loading"> </span>
-			<span class="load-text"> Load More</span></a>
-
-<!-- Add the pagination functions here. -->
-
-
-
+			<span class="load-text"> Load Next Posts</span></a>
 		</div>
+
+		<?php endif; ?>
 	</main>
 </div>
 
