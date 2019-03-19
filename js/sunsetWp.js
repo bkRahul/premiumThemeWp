@@ -35,9 +35,14 @@ $(document).on('click', '.sunsetWp-load-more:not(.loading)', function() {
 	var newpage = page+1;
 	var ajaxurl = that.data('url');
 	var prev = that.data('prev');
+	var archive = that.data('archive');
 
 	if ( typeof prev == 'undefined' ) {
 		prev = 0;
+	}
+
+	if ( typeof archive == 'undefined' ) {
+		archive = 0;
 	}
 
 	that.addClass('loading').find('.load-text').slideUp(320);
@@ -49,6 +54,7 @@ $(document).on('click', '.sunsetWp-load-more:not(.loading)', function() {
 		data : {
 			page : page,
 			prev : prev,
+			archive :archive,
 			action : 'sunsetWp_load_more'
 		},
 		error : function( response ) {
@@ -130,5 +136,10 @@ function isVisible(element){
 	var el_bottom = el_top + el_height;
 	return ( (el_bottom-el_height*0.25 > scroll_pos ) && ( el_top < ( scroll_pos+0.5*window_height ) ) );
 }
+
+
+$('[data-toggle="tooltip"]').tooltip();
+
+$('[data-toggle="popover"]').popover();
 
 });
