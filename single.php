@@ -21,7 +21,7 @@ This is the template for the single
 
 					get_template_part( 'template-parts/single', get_post_format() );
 
-					the_post_navigation();
+					echo sunsetWp_post_navigation();
 
 				endwhile;
 
