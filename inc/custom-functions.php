@@ -8,6 +8,16 @@
 	*/
 
 
+//custom function to fix Access-Control-Allow-Origin  
+
+function add_cors_http_header() {
+
+    header("Access-Control-Allow-Origin: *");
+
+}
+
+add_action('init','add_cors_http_header');
+
 
 //post loop meta custom function
 
@@ -27,6 +37,7 @@ $i++;
 endforeach;
 endif;
 	return '<span class="posted-on">Posted <a href="'.esc_url( get_permalink() ).'">'. $posted_on . '</a> ago / </span><span class="posted-in">'. $output .'</span>';
+
 }
 
 
@@ -34,6 +45,7 @@ endif;
 //post loop footer custom function
 
 function sunsetWp_posts_footer() {
+
 	$commentsnum = get_comments_number();
 	if ( comments_open() ) {
 
@@ -52,6 +64,7 @@ function sunsetWp_posts_footer() {
 		$comments = __('Comments are closed'); 
 	}
 	return '<div class="post-footer-container"><div class="row"><div class="col-xs-12 col-sm-6">'. get_the_tag_list('<div class="tags-list"><span class="sunset-icon sunset-tag"></span>', ' ', '</div>') .'</div><div class="col-xs-12 col-sm-6 text-right">' . $comments . '</div></div></div>';
+
 }
 
 
@@ -59,6 +72,7 @@ function sunsetWp_posts_footer() {
 //post loop background image custom function 
 
 function featured_image( $num = 1 ) {
+
 	$output = '';
 	if( has_post_thumbnail() && $num == 1 ): 
 		$output = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) );
@@ -81,6 +95,7 @@ function featured_image( $num = 1 ) {
 	endif;
 	
 	return $output;
+
 }
 
 
@@ -88,9 +103,11 @@ function featured_image( $num = 1 ) {
 //custom function to get media content in posts
 
 function get_embedded_media_content( $type = array()) {
+
 	$content = do_shortcode( apply_filters( 'the_content', get_the_content() ));
 	$embed = get_media_embedded_in_content( $content, $type);
 	return $embed[0];
+
 }
 
 
@@ -98,6 +115,7 @@ function get_embedded_media_content( $type = array()) {
 //custom function gallery post type
 
 function get_slider_attachments( $attachments ) {
+
 	$output = array();
 	$count =  count($attachments)-1;
 	for ( $i=0; $i <= $count; $i++ ):
@@ -118,6 +136,26 @@ function get_slider_attachments( $attachments ) {
 	endfor; 
 
 	return $output;
+
+}
+
+
+//custom function gallery post type
+
+function sunsetWp_post_navigation(){
+
+	$nav = '<div class="row">';
+
+	$prev = get_previous_post_link( '<div class="post-link-nav"><span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span> %link</div>', '%title' );
+	$nav .= '<div class="col-xs-12 col-sm-6">' . $prev . '</div>';
+	
+	$next = get_next_post_link( '<div class="post-link-nav">%link <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span></div>', '%title' );
+	$nav .= '<div class="col-xs-12 col-sm-6 text-right">' . $next . '</div>';
+	
+	$nav .= '</div>';
+	
+	return $nav;
+
 }
 
 ?>
