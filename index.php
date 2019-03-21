@@ -17,7 +17,7 @@ This is the template for the index.php
 		<?php if ( is_paged() ): ?>
 
 		<div class="container prev-post-container text-center">
-			<a class="btn-sunsetWp-load sunsetWp-load-more" data-prev="1" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>"><span class="sunset-icon sunset-loading"> </span>
+			<a class="btn-sunsetWp-load sunsetWp-load-more" data-prev="1" data-page="<?php echo sunsetWp_check_paged(1); ?>" data-url="<?php echo admin_url('admin-ajax.php'); ?>"><span class="sunset-icon sunset-loading"> </span>
 			<span class="load-text"> Load Previous Posts</span></a>
 		</div>
 
@@ -26,7 +26,7 @@ This is the template for the index.php
 		<div class="container sunsetWp-posts-container">
 			<?php if( have_posts() ):
 
-				echo '<div class="page-limit" data-page="">';
+				echo '<div class="page-limit" data-page="/'.sunsetWp_check_paged().'">';
 
 				while( have_posts() ): the_post();
 
@@ -49,7 +49,7 @@ This is the template for the index.php
 		if (  $wp_query->max_num_pages > 1 ):  ?>
 
 		<div class="container text-center">
-			<a class="btn-sunsetWp-load sunsetWp-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>"><span class="sunset-icon sunset-loading"> </span>
+			<a class="btn-sunsetWp-load sunsetWp-load-more" data-page="<?php echo sunsetWp_check_paged(1); ?>" data-url="<?php echo admin_url('admin-ajax.php'); ?>"><span class="sunset-icon sunset-loading"> </span>
 			<span class="load-text"> Load Next Posts</span></a>
 		</div>
 
