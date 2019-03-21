@@ -158,4 +158,39 @@ function sunsetWp_post_navigation(){
 
 }
 
+
+//custom function for social media share links
+
+function sunsetWp_share_this( $content ){
+	
+	if( is_single() ){
+	
+		$content .= '<div class="sunsetWp-shareThis"><h4>Share This</h4>';
+				
+		$title = get_the_title();
+		$permalink = get_permalink();
+		
+		$twitterHandler = ( get_option('twitter_handler') ? '&amp;via='.esc_attr( get_option('twitter_handler') ) : '' );
+		
+		$twitter = 'https://twitter.com/intent/tweet?text=Hey! Read this: ' . $title . '&amp;url=' . $permalink . $twitterHandler .'';
+		$facebook = 'https://www.facebook.com/sharer/sharer.php?u=' . $permalink;
+		$google = 'https://plus.google.com/share?url=' . $permalink;
+			
+		$content .= '<ul>';
+		$content .= '<li><a href="' . $twitter . '" target="_blank" rel="nofollow"><span class="sunset-icon sunset-twitter"></span></a></li>';
+		$content .= '<li><a href="' . $facebook . '" target="_blank" rel="nofollow"><span class="sunset-icon sunset-facebook"></span></a></li>';
+		$content .= '<li><a href="' . $google . '" target="_blank" rel="nofollow"><span class="sunset-icon sunset-googleplus"></span></a></li>';
+		$content .= '</ul></div><!-- .sunset-share -->';
+		
+		return $content;
+	
+	} else {
+		return $content;
+	}
+	
+}
+add_filter( 'the_content', 'sunsetWp_share_this' );
+
+
+
 ?>
