@@ -23,6 +23,10 @@ This is the template for the single
 
 					echo sunsetWp_post_navigation();
 
+					if( comments_open() ):
+						comments_template();
+					endif;	
+
 				endwhile;
 
 				echo '</div>';
