@@ -69,4 +69,6 @@ This is the template for the theme support options
 
 	add_action('init', 'sunsetWp_register_nav_menu');
 
+	//add HTML5 feature
+	add_theme_support( 'html5', array('comment-list', 'comment-form, search-form', 'gallery', 'caption') );
 ?>
