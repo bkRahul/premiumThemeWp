@@ -571,9 +571,9 @@ div.entry-meta {
 	margin-top: 60px;
 }
 
-/* 
-	
-	---------------------Sharing section------------
+
+/*
+------------Social links sharing------------------
 */
 
 .sunsetWp-shareThis {
@@ -610,4 +610,22 @@ div.entry-meta {
 		
 	}
 	
+}
+
+
+/*
+------------sidebar section------------------
+*/
+
+#sidebar {
+	position: fixed;
+	background-color: #000;
+	color: #fff;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	height: 100vh;
+	max-width: 100%; 
+	width: 280px;
+	z-index: 9;
 }

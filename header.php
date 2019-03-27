@@ -68,3 +68,6 @@ This is the template for the header
 			</div><!-- .col-xs-12 -->
 		</div><!-- .row -->
 	</div><!-- .container-fluid -->
+	<div class="sunsetWp-sidebar">
+		<?php get_sidebar(); ?>
+	</div>

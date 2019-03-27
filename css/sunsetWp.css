@@ -689,9 +689,8 @@ div.entry-meta a:hover, div.entry-meta a:focus {
   margin-top: 60px;
 }
 
-/* 
-	
-	---------------------Sharing section------------
+/*
+------------Social links sharing------------------
 */
 .sunsetWp-shareThis {
   display: block;
@@ -719,6 +718,22 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 .sunsetWp-shareThis a:hover, .sunsetWp-shareThis a:focus {
   opacity: 1;
   color: #000000;
+}
+
+/*
+------------sidebar section------------------
+*/
+#sidebar {
+  position: fixed;
+  background-color: #000;
+  color: #fff;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  max-width: 100%;
+  width: 280px;
+  z-index: 9;
 }
 
 /*# sourceMappingURL=sunsetWp.css.map */
