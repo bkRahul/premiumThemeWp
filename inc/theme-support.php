@@ -18,6 +18,23 @@ This is the template for the theme support options
 
 	*/
 
+	//add theme support for widgets sidebar
+	function sunsetWp_widget_setup() {
+	register_sidebar(
+		array(
+			'name' => 'Sidebar',
+			'id' => 'sidebar-1',
+			'class' => 'custom',
+			'description' => 'Standard Sidebar',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h1 class="widget-title">',
+			'after_title' => '</h1>'
+		 ));
+	}
+
+	add_action('widgets_init', 'sunsetWp_widget_setup');
+
 
 	//add theme support for post-formats
  	$options = get_option('post_formats');
@@ -57,17 +74,17 @@ This is the template for the theme support options
 	}
 
 	//add theme support for featured image
- 
-	add_theme_support('post-thumbnails');
+ 	add_theme_support('post-thumbnails');
  
 
 	//add theme support for menu
-
 	function sunsetWp_register_nav_menu() {
 		register_nav_menu('primary', 'Header Navigation Menu');
 	}
 
 	add_action('init', 'sunsetWp_register_nav_menu');
+
+
 
 	//add HTML5 feature
 	add_theme_support( 'html5', array('comment-list', 'comment-form, search-form', 'gallery', 'caption') );
