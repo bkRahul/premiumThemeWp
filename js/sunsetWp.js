@@ -138,6 +138,11 @@ function isVisible(element){
 }
 
 
+$(document).on('click', '.js-toggleSidebar', function() {
+	$('.sunsetWp-sidebar').toggleClass('sidebar-closed');
+});
+
+
 $('[data-toggle="tooltip"]').tooltip();
 
 $('[data-toggle="popover"]').popover();

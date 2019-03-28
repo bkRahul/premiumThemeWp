@@ -723,7 +723,7 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 /*
 ------------sidebar section------------------
 */
-#sidebar {
+.sunsetWp-sidebar {
   position: fixed;
   background-color: #000;
   color: #fff;
@@ -734,6 +734,29 @@ div.entry-meta a:hover, div.entry-meta a:focus {
   max-width: 100%;
   width: 280px;
   z-index: 9;
+  -webkit-transition: transform 320ms ease;
+  -moz-transition: transform 320ms ease;
+  -ms-transition: transform 320ms ease;
+  -o-transition: transform 320ms ease;
+  transition: transform 320ms ease;
+}
+.sunsetWp-sidebar.sidebar-closed {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.sidebarOpen, .sidebarClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 8;
+  cursor: pointer;
+}
+.sidebarOpen:hover, .sidebarOpen:focus, .sidebarClose:hover, .sidebarClose:focus {
+  color: #cb1311 !important;
 }
 
 /*# sourceMappingURL=sunsetWp.css.map */

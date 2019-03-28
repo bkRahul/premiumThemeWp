@@ -26,8 +26,12 @@ This is the template for the header
 </head>
 
 <body <?php body_class(); ?>>
+				<a class="js-toggleSidebar sidebarOpen"><span class="sunset-icon sunset-menu"></span></a>
 	<div class="container-fluid">
 		<div class="row">
+			
+
+
 			<div class="col-xs-12 col-md-12">
 
 			<div class="header-container " style="background-image: url(<?php header_image(); ?>)">
@@ -68,6 +72,9 @@ This is the template for the header
 			</div><!-- .col-xs-12 -->
 		</div><!-- .row -->
 	</div><!-- .container-fluid -->
-	<div class="sunsetWp-sidebar">
+	<aside class="sunsetWp-sidebar">
+		<div class="sidebar-container">
+			<a class="js-toggleSidebar sidebarClose"><span class="sunset-icon sunset-close"></span></a>
+		</div>
 		<?php get_sidebar(); ?>
-	</div>
+	</aside>

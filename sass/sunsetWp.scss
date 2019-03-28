@@ -602,8 +602,7 @@ div.entry-meta {
 		margin: 0 5px;
 		color: #000000;
 		
-		&:hover,
-		&:focus {
+		&:hover,&:focus {
 			opacity: 1;
 			color: #000000;
 		}
@@ -617,7 +616,7 @@ div.entry-meta {
 ------------sidebar section------------------
 */
 
-#sidebar {
+.sunsetWp-sidebar {
 	position: fixed;
 	background-color: #000;
 	color: #fff;
@@ -628,4 +627,21 @@ div.entry-meta {
 	max-width: 100%; 
 	width: 280px;
 	z-index: 9;
+	@include animate(transform, 320ms);
+
+	&.sidebar-closed {
+	@include transform(translateX(100%));
+	}
+}
+
+.sidebarOpen, .sidebarClose {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 8;
+	cursor: pointer;
+	
+	&:hover, &:focus {
+		color: #cb1311 !important;
+	}
 }
