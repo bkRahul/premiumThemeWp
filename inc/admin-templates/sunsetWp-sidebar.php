@@ -4,14 +4,16 @@
 <?php
 	
 	//Store the field variables for use
- 	$picture = esc_attr(get_option('profile_picture'));
- 	$firstname = esc_attr(get_option('first_name'));
-	$lastname = esc_attr(get_option('last_name'));
+	$picture = esc_attr( get_option('profile_picture') );
+	$firstname = esc_attr( get_option('first_name') );
+	$lastname = esc_attr( get_option('last_name') );
 
 	$fullname = $firstname.' '.$lastname;
+	$description = esc_attr( get_option('description') );
 
-	$description = esc_attr(get_option('description'));
-
+	$twitter_icon = esc_attr( get_option('twitter_handler') );
+	$facebook_icon = esc_attr( get_option('facebook_handler') );
+	$googleplus_icon = esc_attr( get_option('gplus_handler') );
 ?>
 
 <div class="container box-container">
@@ -24,7 +26,19 @@
 
 	<h1 class="admin-name"><?php print $fullname; ?></h1>
 	<h3 class="admin-description"><?php print $description; ?></h3>
-	<div class="admin-icons"></div>
+	<div class="admin-social-icons">
+		<?php if( !empty( $facebook_icon ) ): ?>
+			<a href="https://facebook.com/<?php echo $facebook_icon; ?>" target="_blank"><span class="sunset-icon-sidebar dashicons-before dashicons-facebook"></span></a>
+		<?php endif; 
+
+		 if( !empty( $googleplus_icon ) ): ?>
+			<a href="https://twitter.com/<?php echo $googleplus_icon; ?>" target="_blank"><span class="sunset-icon-sidebar dashicons-before dashicons-googleplus"></span></a>
+		<?php endif; 
+
+		 if( !empty( $twitter_icon ) ): ?>
+			<a href="https://plus.gogle.com/<?php echo $twitter_icon; ?>" target="_blank"><span class="sunset-icon-sidebar dashicons-before dashicons-twitter"></span></a>
+		<?php endif; ?>		
+	</div>
 </div>
 
 

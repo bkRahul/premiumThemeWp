@@ -645,3 +645,39 @@ div.entry-meta {
 		color: #cb1311 !important;
 	}
 }
+
+
+/*
+------------sidebar admin info------------------
+*/
+
+ 
+.sidebar-preview, .sidebar-admin-form {
+	display: inline-block;
+	float: left;
+	margin: 20px;
+} 
+
+.sidebar-preview {
+	background-color: #000;
+	text-align: center;
+}
+
+.sidebar-preview h1, .sidebar-preview h3{
+	color: #fff;
+}
+
+.sidebar-admin_form {
+	width: 60%;
+}
+ 
+
+#profile-image-preview {
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-size: 100%;
+    margin: 18px auto;
+    background-position: top center;
+}

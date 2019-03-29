@@ -70,7 +70,7 @@ This is the template for the theme support options
 
 
 	//add theme support for widgets sidebar
-	function sunsetWp_widget_setup() {
+	function sunsetWp_sidebar_setup() {
 	register_sidebar(
 		array(
 			'name' => 'Sidebar',
@@ -84,7 +84,7 @@ This is the template for the theme support options
 		 ));
 	}
 
-	add_action('widgets_init', 'sunsetWp_widget_setup');
+	add_action('widgets_init', 'sunsetWp_sidebar_setup');
 
 
 	//add HTML5 feature
