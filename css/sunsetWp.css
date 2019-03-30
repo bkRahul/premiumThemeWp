@@ -6,6 +6,9 @@ This is the sass style file for the sunsetWp theme
 
 */
 /*
+------------Placeholders------------------
+*/
+/*
 
 This is the sass placeholders base file for the sunsetWp theme
 @package SunsetWp
@@ -721,7 +724,7 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 }
 
 /*
-------------sidebar section------------------
+------------Sidebar Section------------------
 */
 .sunsetWp-sidebar {
   position: fixed;
@@ -747,6 +750,20 @@ div.entry-meta a:hover, div.entry-meta a:focus {
   -o-transform: translateX(100%);
   transform: translateX(100%);
 }
+.sunsetWp-sidebar section {
+  margin: 0 20px;
+}
+.sunsetWp-sidebar section li a {
+  color: #b2b2b2;
+}
+
+.sidebar-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  padding-top: 40px;
+}
 
 .sidebarOpen, .sidebarClose {
   position: absolute;
@@ -760,25 +777,11 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 }
 
 /*
-------------sidebar admin info------------------
+------------Sidebar Widget Admin Section------------------
 */
-.sidebar-preview, .sidebar-admin-form {
-  display: inline-block;
-  float: left;
-  margin: 20px;
-}
-
 .sidebar-preview {
   background-color: #000;
   text-align: center;
-}
-
-.sidebar-preview h1, .sidebar-preview h3 {
-  color: #fff;
-}
-
-.sidebar-admin_form {
-  width: 60%;
 }
 
 #profile-image-preview {
@@ -789,6 +792,51 @@ div.entry-meta a:hover, div.entry-meta a:focus {
   background-size: 100%;
   margin: 18px auto;
   background-position: top center;
+}
+
+.admin-social-icons {
+  margin-top: 20px;
+}
+.admin-social-icons a {
+  color: none;
+}
+.admin-social-icons .sunset-icon-sidebar {
+  font-size: 22px;
+  margin: 10px;
+}
+.admin-social-icons .sunset-facebook:hover, .admin-social-icons .sunset-facebook:focus {
+  color: #4267b2;
+}
+.admin-social-icons .sunset-googleplus:hover, .admin-social-icons .sunset-googleplus:focus {
+  color: #ED3833;
+}
+.admin-social-icons .sunset-twitter:hover, .admin-social-icons .sunset-twitter:focus {
+  color: #38A1F3;
+}
+
+/*
+------------Sidebar Widget Sections------------------
+*/
+.sunsetWp-widget-title {
+  text-align: center;
+  background: #1F1F1F;
+  border-radius: 27px;
+  margin: 15px;
+  padding: 12px;
+}
+
+.tagcloud {
+  text-align: center;
+}
+.tagcloud a {
+  color: #000;
+  background: #fff;
+  border-radius: 20px;
+  padding: 4px 8px;
+}
+
+.sidebar-container {
+  overflow: scroll;
 }
 
 /*# sourceMappingURL=sunsetWp.css.map */

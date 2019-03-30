@@ -10,22 +10,23 @@ This is the template for the custom widgets
 */
 
 
-class sunsetWp_Profile_Widget extends WP_Widget {
+class SunsetWp_Profile_Widget extends WP_Widget {
 	
 	//setup widget name, description 
 	public function __construct() {
 
 		$widget_ops = array(
-			'classname' => 'sunsetWp-profile-widget',
-			'description' => 'Custom Sunset Profile Widget'
+			'classname' => 'sunset-profile-widget',
+			'description' => 'Custom Sunset Profile Widget',
 		);
 
 		parent::__construct( 'sunset_profile', 'Sunset Profile', $widget_ops );
+		
 	}
-
-	//backend display of widget
+	
+	//back-end display of widget
 	public function form( $instance ) {
-		echo '<p><strong>No Options for this Widget!</strong><br/> You can create fields for this Widget from <a href="./admin.php?page=premium_sunsetWp">this page</a></p>';
+		echo '<p><strong>No options for this Widget!</strong><br/>You can control the fields of this Widget from <a href="./admin.php?page=premium_sunsetWp">This Page</a></p>';
 	}
 
 	//frontend display of widget
@@ -53,29 +54,45 @@ class sunsetWp_Profile_Widget extends WP_Widget {
  
 
 	<h1 class="admin-name"><?php print $fullname; ?></h1>
-	<h4 class="admin-description"><?php print $description; ?></h4>
+	<h5 class="admin-description"><?php print $description; ?></h5>
 	<div class="admin-social-icons">
 		<?php if( !empty( $facebook_icon ) ): ?>
-			<a href="https://facebook.com/<?php echo $facebook_icon; ?>" target="_blank"><span class="sunset-icon-sidebar sunset-icon sunset-facebook"></span></a>
+			<a href="https://facebook.com/<?php echo $facebook_icon; ?>" target="_blank" class="sunset-icon-sidebar sunset-icon sunset-facebook"></a>
 		<?php endif; 
 
 		 if( !empty( $googleplus_icon ) ): ?>
-			<a href="https://twitter.com/<?php echo $googleplus_icon; ?>" target="_blank"><span class="sunset-icon-sidebar sunset-icon sunset-googleplus"></span></a>
+			<a href="https://plus.gogle.com/<?php echo $googleplus_icon; ?>" target="_blank" class="sunset-icon-sidebar sunset-icon sunset-googleplus"></a>
 		<?php endif; 
 
 		 if( !empty( $twitter_icon ) ): ?>
-			<a href="https://plus.gogle.com/<?php echo $twitter_icon; ?>" target="_blank"><span class="sunset-icon-sidebar sunset-icon sunset-twitter"></span></a>
+			<a href="https://twitter.com/<?php echo $twitter_icon; ?>" target="_blank" class="sunset-icon-sidebar sunset-icon sunset-twitter"></a>
 		<?php endif; ?>		
 	</div>
 </div>
 
 <?php 
 
-	echo $args['before_widget'];
+	echo $args['after_widget'];
 
 	}
 }
 
 add_action( 'widgets_init', function(){
-	register_widget( 'sunsetWp_Profile_Widget' );
+	register_widget( 'SunsetWp_Profile_Widget' );
 } );
+
+
+
+//Edit default WordPress widgets
+
+function sunsetWp_tag_cloud_font_change( $args ) {
+	
+	$args['smallest'] = 8;
+	$args['largest'] = 10;
+	
+	return $args;
+	
+}
+
+add_filter( 'widget_tag_cloud_args', 'sunsetWp_tag_cloud_font_change' );
+

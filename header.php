@@ -30,8 +30,6 @@ This is the template for the header
 	<div class="container-fluid">
 		<div class="row">
 			
-
-
 			<div class="col-xs-12 col-md-12">
 
 			<div class="header-container " style="background-image: url(<?php header_image(); ?>)">
@@ -75,6 +73,6 @@ This is the template for the header
 	<aside class="sunsetWp-sidebar">
 		<div class="sidebar-container">
 			<a class="js-toggleSidebar sidebarClose"><span class="sunset-icon sunset-close"></span></a>
+			<?php get_sidebar(); ?>
 		</div>
-		<?php get_sidebar(); ?>
 	</aside>

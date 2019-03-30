@@ -73,14 +73,14 @@ This is the template for the theme support options
 	function sunsetWp_sidebar_setup() {
 	register_sidebar(
 		array(
-			'name' => 'Sidebar',
+			'name' => 'SunsetWp Sidebar',
 			'id' => 'sidebar-1',
 			'class' => 'custom',
-			'description' => 'Standard Sidebar',
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget' => '</aside>',
-			'before_title' => '<h1 class="widget-title">',
-			'after_title' => '</h1>'
+			'description' => 'Standard Theme Sidebar',
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget' => '</section>',
+			'before_title' => '<h6 class="sunsetWp-widget-title">',
+			'after_title' => '</h6>'
 		 ));
 	}
 
