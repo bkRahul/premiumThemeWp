@@ -26,7 +26,18 @@ This is the template for the header
 </head>
 
 <body <?php body_class(); ?>>
-				<a class="js-toggleSidebar sidebarOpen"><span class="sunset-icon sunset-menu"></span></a>
+
+	<aside class="sunsetWp-sidebar sidebar-closed">
+		<div class="sidebar-container">
+			<a class="js-toggleSidebar sidebarClose"><span class="sunset-icon sunset-close"></span></a>
+			<?php get_sidebar(); ?>
+		</div>
+	</aside>
+
+	<div class="sidebar-overlay"></div>
+
+	<a class="js-toggleSidebar sidebarOpen"><span class="sunset-icon sunset-menu"></span></a>
+
 	<div class="container-fluid">
 		<div class="row">
 			
@@ -70,9 +81,4 @@ This is the template for the header
 			</div><!-- .col-xs-12 -->
 		</div><!-- .row -->
 	</div><!-- .container-fluid -->
-	<aside class="sunsetWp-sidebar">
-		<div class="sidebar-container">
-			<a class="js-toggleSidebar sidebarClose"><span class="sunset-icon sunset-close"></span></a>
-			<?php get_sidebar(); ?>
-		</div>
-	</aside>
+
