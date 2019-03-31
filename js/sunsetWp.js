@@ -139,7 +139,11 @@ function isVisible(element){
 
 
 $(document).on('click', '.js-toggleSidebar', function() {
-	$('.sunsetWp-sidebar').toggleClass('sidebar-closed');
+
+	$('.sunsetWp-sidebar').toggleClass( 'sidebar-closed' );
+	$('body').toggleClass( 'no-scroll' );
+	$('.sidebar-overlay').fadeToggle( 320 );
+
 });
 
 
