@@ -142,7 +142,7 @@ function get_slider_attachments( $attachments ) {
 
 //custom function gallery post type
 
-function sunsetWp_post_navigation(){
+function sunsetWp_post_navigation() {
 
 	$nav = '<div class="row">';
 
@@ -161,7 +161,7 @@ function sunsetWp_post_navigation(){
 
 //custom function for social media share links
 
-function sunsetWp_share_this( $content ){
+function sunsetWp_share_this( $content ) {
 	
 	if( is_single() ){
 	
@@ -192,5 +192,20 @@ function sunsetWp_share_this( $content ){
 add_filter( 'the_content', 'sunsetWp_share_this' );
 
 
+//custom function to save post views
+
+function sunsetWp_save_post_views( $postID ) {
+
+	$metaKey = 'sunset_post_views';
+	$views = get_post_meta( $postID, $metaKey, true );
+
+	$count = ( empty( $views ) ? 0 : $views );
+	$count++;
+
+	update_post_meta( $postID, $metaKey, $count );
+
+}
+
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 
 ?>
