@@ -12,7 +12,8 @@ This is the template for the custom widgets
 
 class SunsetWp_Profile_Widget extends WP_Widget {
 	
-	//setup widget name, description 
+	//setup widget name, description
+
 	public function __construct() {
 
 		$widget_ops = array(
@@ -96,3 +97,15 @@ function sunsetWp_tag_cloud_font_change( $args ) {
 
 add_filter( 'widget_tag_cloud_args', 'sunsetWp_tag_cloud_font_change' );
 
+
+//Edit the category links
+
+function sunsetWp_list_categories_output_change( $links ) {
+	
+	$links = str_replace('</a> (', '</a> <span>', $links);
+	$links = str_replace(')', '</span>', $links);
+	
+	return $links;
+	
+}
+add_filter( 'wp_list_categories', 'sunsetWp_list_categories_output_change' );
