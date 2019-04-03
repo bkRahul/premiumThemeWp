@@ -192,6 +192,43 @@ function sunsetWp_share_this( $content ) {
 add_filter( 'the_content', 'sunsetWp_share_this' );
 
 
+	/*
+
+	=======================================
+		 Theme Widget Custom Functions
+	=======================================
+
+	*/
+
+
+//Edit default WordPress widgets
+
+function sunsetWp_tag_cloud_font_change( $args ) {
+	
+	$args['smallest'] = 8;
+	$args['largest'] = 10;
+	
+	return $args;
+	
+}
+
+add_filter( 'widget_tag_cloud_args', 'sunsetWp_tag_cloud_font_change' );
+
+
+//Edit the category links
+
+function sunsetWp_list_categories_output_change( $links ) {
+	
+	$links = str_replace('</a> (', '</a> <span>', $links);
+	$links = str_replace(')', '</span>', $links);
+	
+	return $links;
+	
+}
+
+add_filter( 'wp_list_categories', 'sunsetWp_list_categories_output_change' );
+
+
 //custom function to save post views
 
 function sunsetWp_save_post_views( $postID ) {
