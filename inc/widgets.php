@@ -157,15 +157,17 @@ public function update( $new_instance, $old_instance ) {
 
 		if ( $posts_query->have_posts() ):
 
-			echo '<ul>';
+			echo '<div>';
 
 			while( $posts_query->have_posts() ): $posts_query->the_post();
 
-				echo '<li><a href="' . get_the_permalink() . '">'. get_the_title() .'</a></li>';
+$get_views_count = get_post_meta( get_the_ID(), 'sunset_post_views', true );
+
+				echo '<p><span class="post-icon"><img src="' . get_template_directory_uri() . '/img/post-'. ( get_post_format() ? get_post_format() : 'standard' ) .'.png"></span><a href="' . get_the_permalink() . '">'. get_the_title() .'</a></p>';
 
 			endwhile;
 
-			echo '</ul>';
+			echo '</div>';
 
 		endif;
 			

@@ -34,7 +34,7 @@ This is the template for the header
 		</div>
 	</aside>
 
-	<div class="sidebar-overlay"></div>
+	<div class="sidebar-overlay js-toggleSidebar"></div>
 
 	<a class="js-toggleSidebar sidebarOpen"><span class="sunset-icon sunset-menu"></span></a>
 
