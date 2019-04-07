@@ -32,7 +32,6 @@ add_shortcode('tooltip', 'sunsetWp_tooltip');
 
 
 //Bootstrap button popover
-
 function sunsetWp_popover($atts, $content = null, $data = null ){
 
 	//get the attributes
@@ -51,4 +50,27 @@ function sunsetWp_popover($atts, $content = null, $data = null ){
 add_shortcode('popover', 'sunsetWp_popover');
 
 /*[popover title="top" data-content="Some content inside the popover"]This is the content[/popover]*/
+
+
+
+//Contact Form Shortcode 
+function sunsetWp_contact_form( $atts, $content = null ){
+
+	//get the attributes
+	$atts = shortcode_atts(
+		array(),
+		$atts,'contact_form'
+	);
+
+	//return HTML
+	ob_start();
+	include 'contact-form.php';
+	return ob_get_clean();
+
+} 
+
+add_shortcode('contact_form', 'sunsetWp_contact_form');
+
+/*[contact_form]This is the content[/contact_form]*/
+
 ?>
