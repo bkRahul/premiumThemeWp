@@ -1,21 +1,21 @@
 <form id="sunsetWpContactForm" action="#" method="post" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
 
 	<div class="form-group">
-		<input type="text" class="form-control" placeholder="Your Name" id="name" name="name" required>
+		<input type="text" class="form-control" placeholder="Your Name" id="name" name="name" >
 		<small class="text-danger form-control-msg">Your Name is Required</small>
 	</div>
 
 	<div class="form-group">
-		<input type="email" class="form-control" placeholder="Your Email" id="email" name="email" required>
+		<input type="email" class="form-control" placeholder="Your Email" id="email" name="email" >
 		<small class="text-danger form-control-msg">Your Email is Required</small>
 	</div>
 
 	<div class="form-group">
-		<textarea name="message" id="message" class="form-control" placeholder="Your Message" required></textarea>
+		<textarea name="message" id="message" class="form-control" placeholder="Your Message" ></textarea>
 		<small class="text-danger form-control-msg">A Message is Required</small>
 	</div>
 
-	<button type="stubmit" class="btn btn-default">Submit</button>
+	<button type="submit" class="btn btn-default">Submit</button>
 	<small class="text-info form-control-msg js-form-submission">Submission in process, please wait..</small>
 	<small class="text-success form-control-msg js-form-success">Message Successfully submitted, thank you!</small>
 	<small class="text-danger form-control-msg js-form-error">There was a problem with the Contact Form, please try again!</small>

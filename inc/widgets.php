@@ -139,7 +139,7 @@ public function update( $new_instance, $old_instance ) {
 
 		$post_args = array(
 			'post_type' => 'post',
-			'post_per_page' => $tot,
+			'posts_per_page' => $tot,
 			'meta_key' => 'sunset_post_views',
 			'orderby' => 'meta_value_num',
 			'order' => 'DESC'

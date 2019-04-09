@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 /*
 
 
@@ -63,7 +63,7 @@ die();
 
 }
 
-function sunsetWp_check_paged( $num = null ){
+function sunsetWp_check_paged( $num = null ) {
 	
 	$output = "";
 	
@@ -77,4 +77,34 @@ function sunsetWp_check_paged( $num = null ){
 	}
 	
 }
+
+
+add_action('wp_ajax_nopriv_sunsetWp_save_user_contact_form', 'sunsetWp_save_user_contact_form');
+add_action('wp_ajax_sunsetWp_save_user_contact_form', 'sunsetWp_save_user_contact_form');
+
+function sunsetWp_save_user_contact_form() {
+
+	$title = wp_strip_all_tags( $_POST['name'] );
+ 	$email = wp_strip_all_tags( $_POST['email'] );
+	$message = wp_strip_all_tags( $_POST['message'] );
+
+	$args = array(
+		'post_title' => $title,
+		'post_content' => $message,
+		'post_author' => 1,
+		'post_type' => 'sunset-contact',
+		'post_status' => 'publish',
+		'meta_input' => array(
+			'_contact_email_value_key' => $email
+		) 
+	);
+
+	$postID = wp_insert_post( $args );
+
+	echo $postID;
+
+	die();
+
+}
+
 ?>

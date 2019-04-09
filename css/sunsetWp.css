@@ -897,4 +897,19 @@ div.entry-meta a:hover, div.entry-meta a:focus {
   padding: 4px 8px;
 }
 
+/*
+------------contact form section------------------
+*/
+.form-control-msg {
+  display: none;
+}
+
+.has-error .form-control-msg {
+  display: block;
+}
+
+.js-show-feedback {
+  display: block;
+}
+
 /*# sourceMappingURL=sunsetWp.css.map */

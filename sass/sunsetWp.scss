@@ -756,6 +756,7 @@ div.entry-meta {
 	}
 }
 
+
 /*
 ------------Sidebar Widget Sections------------------
 */
@@ -805,4 +806,24 @@ div.entry-meta {
 		border-radius: 20px;
 		padding: 4px 8px;
 	}
+}
+
+
+/*
+------------contact form section------------------
+*/
+
+
+.form-control-msg {
+	display : none;
+}
+
+.has-error {
+	.form-control-msg {
+	display : block;
+	}
+}
+
+.js-show-feedback {
+	display: block;
 }
