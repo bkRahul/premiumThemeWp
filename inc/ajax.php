@@ -99,12 +99,26 @@ function sunsetWp_save_user_contact_form() {
 		) 
 	);
 
-	$postID = wp_insert_post( $args );
+    $postID = wp_insert_post($args);
 
-	echo $postID;
+    if ($postID !== 0) {
 
-	die();
+        $to = get_bloginfo('admin_email');
+        $subject = 'SunsetWp Contact Form - '.$title;
 
+        $headers[] = 'From: '.get_bloginfo('name').' <'.$to.'>'; // 'From: Rahul <me@alecaddd.com>'
+        $headers[] = 'Reply-To: '.$title.' <'.$email.'>';
+        $headers[] = 'Content-Type: text/html: charset=UTF-8';
+
+        wp_mail($to, $subject, $message, $headers);
+
+	    echo $postID;
+
+   }else {
+   	echo 0;
+   }
+
+    die();
 }
 
 ?>
