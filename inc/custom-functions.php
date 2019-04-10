@@ -245,4 +245,20 @@ function sunsetWp_save_post_views( $postID ) {
 
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 
+
+//mailtrap integration
+
+
+function mailtrap($phpmailer) {
+  $phpmailer->isSMTP();
+  $phpmailer->Host = 'smtp.mailtrap.io';
+  $phpmailer->SMTPAuth = true;
+  $phpmailer->Port = 2525;
+  $phpmailer->Username = '4552a68a774c76';
+  $phpmailer->Password = '7cb04d47d0c67b';
+}
+
+add_action('phpmailer_init', 'mailtrap');
+
+
 ?>
