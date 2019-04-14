@@ -813,17 +813,44 @@ div.entry-meta {
 ------------contact form section------------------
 */
 
+#sunsetWpContactForm {
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
 
-.form-control-msg {
-	display : none;
-}
-
-.has-error {
 	.form-control-msg {
-	display : block;
+		display : none;
+	}
+
+	.has-error {
+		.form-control-msg {
+		display : block;
+		}
+	}
+
+	.js-show-feedback {
+		display: block;
 	}
 }
 
-.js-show-feedback {
-	display: block;
+
+/*
+------------footer section------------------
+*/
+
+
+
+
+.footer-container {
+	background: #000;
+	margin-top : 40px;
+	
+	.footer-nav-container {
+	    display: flex;
+	    justify-content: center;
+
+	   #menu-footer-menu li {
+	   	padding: 20px;
+	   }
+	}
 }

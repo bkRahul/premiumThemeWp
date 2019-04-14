@@ -900,16 +900,34 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 /*
 ------------contact form section------------------
 */
-.form-control-msg {
+#sunsetWpContactForm {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+#sunsetWpContactForm .form-control-msg {
   display: none;
 }
-
-.has-error .form-control-msg {
+#sunsetWpContactForm .has-error .form-control-msg {
+  display: block;
+}
+#sunsetWpContactForm .js-show-feedback {
   display: block;
 }
 
-.js-show-feedback {
-  display: block;
+/*
+------------footer section------------------
+*/
+.footer-container {
+  background: #000;
+  margin-top: 40px;
+}
+.footer-container .footer-nav-container {
+  display: flex;
+  justify-content: center;
+}
+.footer-container .footer-nav-container #menu-footer-menu li {
+  padding: 20px;
 }
 
 /*# sourceMappingURL=sunsetWp.css.map */
