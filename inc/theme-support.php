@@ -64,6 +64,7 @@ This is the template for the theme support options
 	//add theme support for menu
 	function sunsetWp_register_nav_menu() {
 		register_nav_menu('primary', 'Header Navigation Menu');
+		register_nav_menu('secondary', 'Footer Navigation Menu');
 	}
 
 	add_action('init', 'sunsetWp_register_nav_menu');
