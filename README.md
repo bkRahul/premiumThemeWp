@@ -10,7 +10,7 @@ Run git clone https://github.com/bkRahul/premiumThemeWp.git
 3 . create database premiumThemeWp;\
 4 . \q\
 5 . Configure your wp-config file\
-7 . Open up the browser and navigate to "localhost/premiumThemeWp" to see it in action
+7 . Open up the browser and navigate to "localhost/premiumThemeWp" to see it in action\
 
 #Features
 
