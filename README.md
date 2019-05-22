@@ -19,5 +19,5 @@ Run git clone https://github.com/bkRahul/premiumThemeWp.git
 3 . Custom Contact Post type to save the contact Messages\
 4 . Built in Contact form with shortcode and ajax submission\
 5 . Ajax load more posts feature\
-6 . Popular Posts Custom Widget to display most viewed posts\
+6 . Popular Posts Custom Widget to display most viewed posts
 
